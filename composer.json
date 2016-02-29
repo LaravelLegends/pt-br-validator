@@ -1,6 +1,7 @@
 {
     "name": "phplegends/pt-br-validator",
     "description": "Uma biblioteca contendo validações de formatos Brasileiros, para o Laravel",
+    "license" : "MIT",
     "authors": [
         {
             "name": "Wallace de Souza Vizerra",

@@ -163,8 +163,4 @@ class TestValidator extends TestCase
         $this->assertTrue($incorrect->fails()); 
     }
 
-
-
-
-
 }
