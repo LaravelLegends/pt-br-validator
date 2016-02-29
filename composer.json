@@ -1,0 +1,20 @@
+{
+    "name": "phplegends/pt-br-validator",
+    "description": "",
+    "authors": [
+        {
+            "name": "Wallace de Souza Vizerra",
+            "email": "wallacemaxters@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "4.2.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "PHPLegends\\PtBrValidator\\": "src/pt-br-validator"
+        }
+    },
+    "minimum-stability": "stable"
+}
