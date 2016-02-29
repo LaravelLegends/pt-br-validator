@@ -6,90 +6,92 @@ use Illuminate\Validation\Validator as BaseValidator;
 
 /**
 * This class is part of PHPLegends package
+*
 * @author Wallace de Souza Vizerra <wallacemaxters@gmail.com>
+* @author Guilherme Nascimento 
 */
 
 class Validator extends BaseValidator
 {
-	/**
-	* Valida o formato do celular junto com o ddd
-	* @param string $attribute
-	* @param string $value
-	* @return boolean
-	*/
-	protected function validateCelularComDdd($attribute, $value)
-	{
-		return preg_match('/^\(\d{2}\)\d{5}-\d{4}$/', $value);
-	}
+    /**
+    * Valida o formato do celular junto com o ddd
+    * @param string $attribute
+    * @param string $value
+    * @return boolean
+    */
+    protected function validateCelularComDdd($attribute, $value)
+    {
+        return preg_match('/^\(\d{2}\)\d{5}-\d{4}$/', $value);
+    }
 
-	
-	/**
-	* Valida o formato do telefone junto com o ddd
-	* @param string $attribute
-	* @param string $value
-	* @return boolean
-	*/
+    
+    /**
+    * Valida o formato do telefone junto com o ddd
+    * @param string $attribute
+    * @param string $value
+    * @return boolean
+    */
 
-	protected function validateTelefoneComDdd($attribute, $value)
-	{
-		return preg_match('/^\(\d{2}\)\d{4}-\d{4}$/', $value);	
-	}
+    protected function validateTelefoneComDdd($attribute, $value)
+    {
+        return preg_match('/^\(\d{2}\)\d{4}-\d{4}$/', $value);  
+    }
 
 
-	/**
-	* Valida o formato do celular
-	* @param string $attribute
-	* @param string $value
-	* @return boolean
-	*/
-	protected function validateCelular($attribute, $value)
-	{
-		return preg_match('/^\d{5}-\d{4}$/', $value);	
-	}
+    /**
+    * Valida o formato do celular
+    * @param string $attribute
+    * @param string $value
+    * @return boolean
+    */
+    protected function validateCelular($attribute, $value)
+    {
+        return preg_match('/^\d{5}-\d{4}$/', $value);   
+    }
 
-	/**
-	* Valida o formato do telefone
-	* @param string $attribute
-	* @param string $value
-	* @return boolean
-	*/
-	protected function validateTelefone($attribute, $value)
-	{
-		return preg_match('/^\d{4}-\d{4}$/', $value);
-	}
+    /**
+    * Valida o formato do telefone
+    * @param string $attribute
+    * @param string $value
+    * @return boolean
+    */
+    protected function validateTelefone($attribute, $value)
+    {
+        return preg_match('/^\d{4}-\d{4}$/', $value);
+    }
 
-	/**
-	* Valida o formato do cpf
-	* @param string $attribute
-	* @param string $value
-	* @return boolean
-	*/
-	protected function validateFormatoCpf($attribute, $value)
-	{
-		return preg_match('/^\d{3}\.\d{3}\.\d{3}-\d{2}$/', $value);
-	}
+    /**
+    * Valida o formato do cpf
+    * @param string $attribute
+    * @param string $value
+    * @return boolean
+    */
+    protected function validateFormatoCpf($attribute, $value)
+    {
+        return preg_match('/^\d{3}\.\d{3}\.\d{3}-\d{2}$/', $value);
+    }
 
-	/**
-	* Valida o formato do cnpj
-	* @param string $attribute
-	* @param string $value
-	* @return boolean
-	*/
-	protected function validateFormatoCnpj($attribute, $value)
-	{
-		return preg_match('/^\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2}$/', $value);
-	}
+    /**
+    * Valida o formato do cnpj
+    * @param string $attribute
+    * @param string $value
+    * @return boolean
+    */
+    protected function validateFormatoCnpj($attribute, $value)
+    {
+        return preg_match('/^\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2}$/', $value);
+    }
 
-	/**
-	* Valida se o CPF é válido
-	* @param string $attribute
-	* @param string $value
-	* @return boolean
-	*/
+    /**
+    * Valida se o CPF é válido
+    * @param string $attribute
+    * @param string $value
+    * @return boolean
+    */
 
-	protected function validateCpf($attribute, $value)
-	{
-		$c = preg_replace('/\D/', '', $value);
+    protected function validateCpf($attribute, $value)
+    {
+        $c = preg_replace('/\D/', '', $value);
 
         if (strlen($c) != 11 || preg_match("/^{$c[0]}{11}$/", $c)) {
             return false;
@@ -109,17 +111,17 @@ class Validator extends BaseValidator
 
         return true;
 
-	}
+    }
 
-	/**
-	* Valida se o CNPJ é válido
-	* @param string $attribute
-	* @param string $value
-	* @return boolean
-	*/
-	protected function validateCnpj($attribute, $value)
-	{
-		$c = preg_replace('/\D/', '', $value);
+    /**
+    * Valida se o CNPJ é válido
+    * @param string $attribute
+    * @param string $value
+    * @return boolean
+    */
+    protected function validateCnpj($attribute, $value)
+    {
+        $c = preg_replace('/\D/', '', $value);
 
         $b = [6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
 
@@ -141,21 +143,21 @@ class Validator extends BaseValidator
 
         return true;
 
-	}
+    }
 
-	/**
-	* Valida se o CNH é válido
-	* @param string $attribute
-	* @param string $value
-	* @return boolean
-	*/
+    /**
+    * Valida se o CNH é válido
+    * @param string $attribute
+    * @param string $value
+    * @return boolean
+    */
 
-	protected function validateCnh($attribute, $value)
-	{
-		// Trecho retirado do respect validation
+    protected function validateCnh($attribute, $value)
+    {
+        // Trecho retirado do respect validation
 
-		$ret = false;
-		
+        $ret = false;
+        
         if ((strlen($input = preg_replace('/[^\d]/', '', $value)) == 11)
             && (str_repeat($input[1], 11) != $input)) {
             $dsc = 0;
@@ -185,6 +187,6 @@ class Validator extends BaseValidator
         }
 
         return $ret;
-	}
+    }
 
 }
