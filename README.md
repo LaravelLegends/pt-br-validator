@@ -9,7 +9,7 @@ No arquivo `composer.json`, adicione:
 
 ```json
 {
-	"phplegends/pt-br-validator" : "dev-master"
+	"phplegends/pt-br-validator" : "1.*"
 }
 ```
 
