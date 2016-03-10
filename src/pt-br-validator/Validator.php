@@ -190,6 +190,13 @@ class Validator extends BaseValidator
     }
 
 
+    /**
+    * Valida se o data está no formato 31/12/1969
+    * @param string $attribute
+    * @param string $value
+    * @return boolean
+    */
+
     public function validateData($attribute, $value)
     {
         $regex = '/^(0[1-9]|[1-2]\d{1}|3[01])\/(0[1-9]|1[1-2])\/\d{4}$/';
