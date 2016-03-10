@@ -46,6 +46,8 @@ A diferença é que agora, você terá os seguintes métodos de validação:
 
 * cnpj - Valida se o CNPJ é valido. Para testar, basta utilizar o site 
 
+* data - Valida se a data está no formato 31/12/1969
+
 
 Então, podemos usar um simples teste:
 
