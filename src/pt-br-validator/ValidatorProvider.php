@@ -14,18 +14,27 @@ class ValidatorProvider extends ServiceProvider
 	 */
 	protected $defer = false;
 
+	
 	/**
-	 * Register the service provider.
+	 * Bootstrap the application events.
 	 *
 	 * @return void
 	 */
-	public function register()
+	 
+	public function boot()
 	{
 		$this->app['validator']->resolver(function ($translator, $data, $rules, $messages)
 		{
 			return new Validator($translator, $data, $rules, $messages);
 		});
 	}
+
+	/**
+	 * Register the service provider.
+	 *
+	 * @return void
+	 */
+	public function register(){}
 
 	/**
 	 * Get the services provided by the provider.
