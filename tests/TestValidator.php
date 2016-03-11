@@ -4,6 +4,8 @@ use PHPLegends\PtBrValidator\Validator;
 
 class TestValidator extends TestCase
 {
+
+    
     public function testTelefoneComDdd()
     {
         
