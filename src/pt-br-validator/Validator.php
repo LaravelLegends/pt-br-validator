@@ -23,8 +23,7 @@ class Validator extends BaseValidator
     {
         return preg_match('/^\(\d{2}\)\d{4,5}-\d{4}$/', $value) > 0;
     }
-
-    
+ 
     /**
     * Valida o formato do telefone junto com o ddd
     * @param string $attribute
