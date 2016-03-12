@@ -15,12 +15,13 @@ No arquivo `composer.json`, adicione:
 
 Rode o comando `composer update --no-scripts`.
 
-Após a instalação, adicione no arquivo `app.php` a seguinte linha:
+Após a instalação, adicione no arquivo `config/app.php` a seguinte linha:
 
 ```php
-'PHPLegends\PtBrValidator\ValidatorProvider'
-```
 
+PHPLegends\PtBrValidator\ValidatorProvider::class
+
+```
 
 
 Para utilizar a validação agora, basta fazer o procedimento padrão do `Laravel`.
