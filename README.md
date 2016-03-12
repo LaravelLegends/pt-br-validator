@@ -1,4 +1,4 @@
-#Laravel 4 - Validação em Português
+#Laravel 5 - Validação em Português
 
 Essa é uma biblioteca com algumas validações brasileiras.
 
