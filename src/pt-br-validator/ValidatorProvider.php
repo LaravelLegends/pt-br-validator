@@ -24,8 +24,6 @@ class ValidatorProvider extends ServiceProvider
     public function boot()
     {
 
-        $this->package('phplegends/pt-br-validator', 'validator');
-
         $me = $this;
 
         $this->app['validator']->resolver(function ($translator, $data, $rules, $messages) use($me)
@@ -39,23 +37,17 @@ class ValidatorProvider extends ServiceProvider
 
     protected function getMessages()
     {
-        return [
-
+        return [        
+            'celular'          => 'O campo :attribute não é um celular válido',
+            'celular_com_ddd'  => 'O campo :attribute não é um possui o formato válido de celular com DDD',
+            'cnh'              => 'O campo :attribute não é uma carteira nacional de habilitação válida',
+            'cnpj'             => 'O campo :attribute não é um CNPJ válido',
+            'cpf'              => 'O campo :attribute não é um CPF válido',
             'data'             => 'O campo :attribute não é uma data com formato válido',
-            
-            'telefone-com-ddd' => 'O campo :attribute não contém um formato válido de telefone',
-            
-            'celular-com-ddd'  => 'O campo :attribute não contém um formato válido de ddd e celular',
-            
-            'celular'          => 'O campo :attribute não contém um formato válido de celular',
-            
-            'format-cpf '      => 'O campo :attribute tem formato de CPF inválido',
-            
-            'cpf '             => 'O campo :attribute contém um CPF inválido',
-            
-            'cnpj'             => 'O campo :attribute contém um CNPJ inválido',
-            
-
+            'formato_cnpj'     => 'O campo :attribute não possui o formato válido de CNPJ',
+            'formato_cpf'      => 'O campo :attribute não possui o formato válido de CPF',
+            'telefone'         => 'O campo :attribute não é um telefone válido',
+            'telefone_com_ddd' => 'O campo :attribute não é um possui o formato válido de telefone com DDD'
         ];
     }
 
