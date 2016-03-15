@@ -53,7 +53,7 @@ Então, podemos usar um simples teste:
 ```php
 $validator = Validator::make(
 	['telefone' => '(77)9999-3333'],
-	['telefone' => 'required|telefone-com-ddd']
+	['telefone' => 'required|telefone_com_ddd']
 );
 
 dd($validator->fails());
