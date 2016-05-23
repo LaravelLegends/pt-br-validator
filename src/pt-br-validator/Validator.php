@@ -199,7 +199,7 @@ class Validator extends BaseValidator
 
     public function validateData($attribute, $value)
     {
-        $regex = '/^(0[1-9]|[1-2]\d{1}|3[01])\/(0[1-9]|1[1-2])\/\d{4}$/';
+        $regex = '/^(0[1-9]|[1-2][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/';
 
         return preg_match($regex, $value) > 0;
     }
