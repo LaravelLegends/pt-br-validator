@@ -9,7 +9,7 @@ No arquivo `composer.json`, adicione:
 
 ```json
 {
-	"phplegends/pt-br-validator" : "2.*"
+	"laravellegends/pt-br-validator" : "5.1.*"
 }
 ```
 
@@ -19,7 +19,7 @@ Após a instalação, adicione no arquivo `config/app.php` a seguinte linha:
 
 ```php
 
-PHPLegends\PtBrValidator\ValidatorProvider::class
+LaravelLegends\PtBrValidator\ValidatorProvider::class
 
 ```
 
