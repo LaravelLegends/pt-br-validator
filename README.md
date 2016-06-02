@@ -2,6 +2,7 @@
 
 Essa é uma biblioteca com algumas validações brasileiras.
 
+[![Build Status](https://travis-ci.org/LaravelLegends/pt-br-validator.svg?branch=master)](https://travis-ci.org/LaravelLegends/pt-br-validator)
 
 #Instalação
 
