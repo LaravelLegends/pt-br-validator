@@ -1,6 +1,6 @@
 <?php
 
-use PHPLegends\PtBrValidator\Validator;
+use LaravelLegends\PtBrValidator\Validator;
 
 class TestValidator extends TestCase
 {
