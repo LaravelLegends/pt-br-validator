@@ -1,6 +1,6 @@
 <?php 
 
-namespace PHPLegends\PtBrValidator;
+namespace LaravelLegends\PtBrValidator;
 
 use Illuminate\Support\ServiceProvider;
 
