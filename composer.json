@@ -11,10 +11,16 @@
     "require": {
         "illuminate/support": "5.*"
     },
+    "required-dev" : {
+        "laravel/framework": "5.*"
+    },
     "autoload": {
         "psr-4": {
             "LaravelLegends\\PtBrValidator\\": "src/pt-br-validator"
         }
     },
-    "minimum-stability": "stable"
+    "minimum-stability": "stable",
+    "require-dev": {
+        "laravel/laravel": "5.0.*"
+    }
 }
