@@ -2,7 +2,7 @@
 
 use LaravelLegends\PtBrValidator\Validator;
 
-class TestValidator extends TestCase
+class TestValidator extends ValidatorTestCase
 {
 
     
@@ -33,7 +33,7 @@ class TestValidator extends TestCase
         );
 
         $incorrect = \Validator::make(
-            ['errado' => '(99)9800-1926'],
+            ['errado' => '(99)800-1926'],
             ['errado' => 'celular-com-ddd']
         );
 
@@ -46,12 +46,12 @@ class TestValidator extends TestCase
     public function testCelular()
     {
         $correct = \Validator::make(
-            ['certo' => '98899-4444'],
-            ['certo' => 'celular']
+            ['certo' => '98899-4444', 'outro_certo' => '9800-1936'],
+            ['certo' => 'celular', 'outro_certo' => 'celular']
         );
 
         $incorrect = \Validator::make(
-            ['errado' => '9800-1926'],
+            ['errado' => '900-1926'],
             ['errado' => 'celular']
         );
 
