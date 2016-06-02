@@ -1,5 +1,5 @@
 {
-    "name": "phplegends/pt-br-validator",
+    "name": "laravellegends/pt-br-validator",
     "description": "Uma biblioteca contendo validações de formatos Brasileiros, para o Laravel 5",
     "license" : "MIT",
     "authors": [
@@ -13,7 +13,7 @@
     },
     "autoload": {
         "psr-4": {
-            "PHPLegends\\PtBrValidator\\": "src/pt-br-validator"
+            "LaravelLegends\\PtBrValidator\\": "src/pt-br-validator"
         }
     },
     "minimum-stability": "stable"
