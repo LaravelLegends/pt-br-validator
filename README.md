@@ -9,7 +9,7 @@ No arquivo `composer.json`, adicione:
 
 ```json
 {
-	"phplegends/pt-br-validator" : "1.*"
+	"laravellegends/pt-br-validator" : "4.2.*"
 }
 ```
 
@@ -18,7 +18,7 @@ Rode o comando `composer update --no-scripts`.
 Após a instalação, adicione no arquivo `app.php` a seguinte linha:
 
 ```php
-'PHPLegends\PtBrValidator\ValidatorProvider'
+'LaravelLegends\PtBrValidator\ValidatorProvider'
 ```
 
 
