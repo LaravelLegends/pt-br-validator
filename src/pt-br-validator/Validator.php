@@ -153,8 +153,6 @@ class Validator extends BaseValidator
 
     protected function validateCnh($attribute, $value)
     {
-        // Trecho retirado do respect validation
-
         $ret = false;
         
         if ((strlen($input = preg_replace('/[^\d]/', '', $value)) == 11)
@@ -201,6 +199,21 @@ class Validator extends BaseValidator
         $regex = '/^(0[1-9]|[1-2][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/';
 
         return preg_match($regex, $value) > 0;
+    }
+
+
+
+    /**
+     * Valida se o formato de CEP está correto
+     *
+     * @param string $attribute
+     * @param string $value
+     * @return boolean
+    */
+
+    public function validateFormatoCep($attribute, $value) 
+    {
+        return preg_match('/^\d{2}\.\d{3}-\d{3}$/', $value) > 0;
     }
 
 }
