@@ -1,6 +1,6 @@
 <?php
 
-abstract class ValidatorTestCase extends TestCase
+abstract class ValidatorTestCase extends Orchestra\Testbench\TestCase
 {
 	public function setUp()
 	{

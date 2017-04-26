@@ -2,9 +2,13 @@
 
 use LaravelLegends\PtBrValidator\Validator;
 
-class TestValidator extends ValidatorTestCase
+class TestValidator extends Orchestra\Testbench\TestCase
 {
 
+    protected function getPackageProviders($app)
+    {
+        return ['LaravelLegends\PtBrValidator\ValidatorProvider'];
+    }
     
     public function testTelefoneComDdd()
     {
@@ -205,7 +209,42 @@ class TestValidator extends ValidatorTestCase
             $this->assertTrue($correct->passes(), "Data {$data} incorreta");
         }
 
+    }
 
+
+    public function testFormatoCep()
+    {
+        
+        $cepsValidos = [
+            '32.400-000',
+            '07.550-000',
+            '30.150-150'
+        ];
+
+
+        foreach ($cepsValidos as $cep) {
+
+            $correct = \Validator::make(['cep' => $cep], ['cep' => 'formato_cep']);
+
+            $this->assertTrue($correct->passes());
+        }
+
+        $cepsInvalidos = [
+            '32400-000',
+            '32400.000',
+            '32.400-0000',
+            '0.400-000',
+            '300.40-000',
+            '300.400-000'
+        ];
+
+
+        foreach ($cepsInvalidos as $cep) {
+            
+            $correct = \Validator::make(['cep' => $cep], ['cep' => 'formato_cep']);
+
+            $this->assertTrue($correct->fails());
+        }
     }
 
 }
