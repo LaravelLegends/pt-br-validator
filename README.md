@@ -43,6 +43,8 @@ org
 
 * formato_cpf - Valida se a mascará do cpf está certo. 999.999.999-99
 
+* formato_cep - Valida se a mascará do cep está certa. 99999-999 ou 99.999-999
+
 * telefone - Valida um telefone através do formato 9999-9999
 
 * telefone_com_ddd - Valida um telefone através do formato (99)9999-9999
