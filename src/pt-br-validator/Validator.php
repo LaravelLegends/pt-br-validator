@@ -213,7 +213,7 @@ class Validator extends BaseValidator
 
     public function validateFormatoCep($attribute, $value) 
     {
-        return preg_match('/^\d{2}\.\d{3}-\d{3}$/', $value) > 0;
+        return preg_match('/^\d{2}\.?\d{3}-\d{3}$/', $value) > 0;
     }
 
 }
