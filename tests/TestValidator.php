@@ -216,6 +216,7 @@ class TestValidator extends Orchestra\Testbench\TestCase
     {
         
         $cepsValidos = [
+            '32400-000',
             '32.400-000',
             '07.550-000',
             '30.150-150'
@@ -230,7 +231,6 @@ class TestValidator extends Orchestra\Testbench\TestCase
         }
 
         $cepsInvalidos = [
-            '32400-000',
             '32400.000',
             '32.400-0000',
             '0.400-000',
