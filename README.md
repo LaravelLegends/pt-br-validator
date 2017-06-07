@@ -1,16 +1,16 @@
-#Laravel 5 - Validação em Português
+# Laravel 5 - Validação em Português
 
 Essa é uma biblioteca com algumas validações brasileiras.
 
 [![Build Status](https://travis-ci.org/LaravelLegends/pt-br-validator.svg?branch=master)](https://travis-ci.org/LaravelLegends/pt-br-validator)
 
-#Instalação
+## Instalação
 
 No arquivo `composer.json`, adicione:
 
 ```json
 {
-	"laravellegends/pt-br-validator" : "5.1.*"
+    "laravellegends/pt-br-validator" : "5.1.*"
 }
 ```
 
