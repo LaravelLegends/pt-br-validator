@@ -126,6 +126,15 @@ class Validator extends BaseValidator
 
         if (strlen($c) != 14) {
             return false;
+
+        } 
+
+        // Remove sequências repetidas como "111111111111"
+        // https://github.com/LaravelLegends/pt-br-validator/issues/4
+
+        elseif (preg_match('/^(\d)\1{13}$/', $c) > 0) {
+
+            return false;
         }
 
         for ($i = 0, $n = 0; $i < 12; $n += $c[$i] * $b[++$i]);

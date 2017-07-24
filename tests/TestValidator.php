@@ -132,6 +132,28 @@ class TestValidator extends Orchestra\Testbench\TestCase
         $this->assertTrue($correct->passes());
 
         $this->assertTrue($incorrect->fails()); 
+
+
+        // Correção do ISSUE: https://github.com/LaravelLegends/pt-br-validator/issues/4
+
+        $repeats = [
+            '00.000.000/0000-00',
+            '11111111111111',
+            '22222222222222',
+            '00.000.000/0000-00',
+            '11.111.111/1111-11',
+            '22.222.222/2222-22',
+        ];
+
+        foreach ($repeats as $cnpj)
+        {
+
+            $validator = \Validator::make(['cnpj' => $cnpj], [
+                'cnpj' => 'required|cnpj'
+            ]);
+
+            $this->assertFalse($validator->passes(), "O CNPJ $cnpj foi marcado como verdadeiro, quando na verdade é FALSO");
+        }
     }
 
 
