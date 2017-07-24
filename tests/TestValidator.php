@@ -269,4 +269,47 @@ class TestValidator extends Orchestra\Testbench\TestCase
         }
     }
 
+    public function testFormatoPlacaDeVeiculo()
+    {
+        $placasValidas = [
+            'ABC-1234',
+            'abc-1234',
+            'ABC1234',
+            'aBc1234', 
+            'abc1234'
+        ];
+
+        foreach ($placasValidas as $placa) {
+            
+            $correct = \Validator::make(
+                ['placa' => $placa], 
+                ['placa' => 'formato_placa_de_veiculo']
+            );
+
+            $this->assertTrue($correct->passes());
+        }
+
+        $placasInvalidas = [
+            'a2c-1234',
+            'abc-12ed',
+            'abc 1234',
+            'ãBC1234',
+            'ABCD1234',
+            'ABC12345',
+            'ab1234',
+            'ab123a4',
+            'abc+1234'
+        ];
+
+        foreach ($placasInvalidas as $placa) {
+            
+            $correct = \Validator::make(
+                ['placa' => $placa], 
+                ['placa' => 'formato_placa_de_veiculo']
+            );
+
+            $this->assertTrue($correct->fails());
+        }
+    }
+
 }

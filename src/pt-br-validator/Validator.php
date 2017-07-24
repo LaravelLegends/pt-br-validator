@@ -225,4 +225,17 @@ class Validator extends BaseValidator
         return preg_match('/^\d{2}\.?\d{3}-\d{3}$/', $value) > 0;
     }
 
+    /**
+     * Valida se o formato de placa de veículo está correto.
+     *
+     * @param string $attribute
+     * @param string $value
+     * @return boolean
+     */
+
+    public function validateFormatoPlacaDeVeiculo($attribute, $value)
+    {
+        return preg_match('/^[a-zA-Z]{3}\-?[0-9]{4}$/', $value) > 0;
+    }
+
 }
