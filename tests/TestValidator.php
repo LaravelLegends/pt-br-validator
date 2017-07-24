@@ -303,12 +303,12 @@ class TestValidator extends Orchestra\Testbench\TestCase
 
         foreach ($placasInvalidas as $placa) {
             
-            $correct = \Validator::make(
+            $incorrect = \Validator::make(
                 ['placa' => $placa], 
                 ['placa' => 'formato_placa_de_veiculo']
             );
 
-            $this->assertTrue($correct->fails());
+            $this->assertTrue($incorrect->fails());
         }
     }
 
