@@ -49,6 +49,8 @@ org
 
 * telefone_com_ddd - Valida um telefone através do formato (99)9999-9999
 
+* formato_placa_de_veiculo - Valida se a placa de veículo está no formato válido
+
 
 Então, podemos usar um simples teste:
 
