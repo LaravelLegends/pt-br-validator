@@ -125,7 +125,7 @@ class Validator extends BaseValidator
 
         $b = [6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
 
-        if (strlen($c) != 14 || preg_match("/^{$c[0]}{14}$/") > 0) {
+        if (strlen($c) != 14 || preg_match("/^{$c[0]}{14}$/", $c) > 0) {
             return false;
         }
 
