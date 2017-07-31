@@ -132,7 +132,7 @@ class Validator extends BaseValidator
         // Remove sequências repetidas como "111111111111"
         // https://github.com/LaravelLegends/pt-br-validator/issues/4
 
-        elseif (preg_match('/^(\d)\1{13}$/', $c) > 0) {
+        elseif (preg_match("/^{$c[0]}{14}$/", $c) > 0) {
 
             return false;
         }
