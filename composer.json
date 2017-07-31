@@ -1,5 +1,5 @@
 {
-    "name": "phplegends/pt-br-validator",
+    "name": "laravellegends/pt-br-validator",
     "description": "Uma biblioteca contendo validações de formatos Brasileiros, para o Laravel",
     "license" : "MIT",
     "authors": [
