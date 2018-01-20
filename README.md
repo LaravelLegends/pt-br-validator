@@ -34,8 +34,7 @@ A diferença é que agora, você terá os seguintes métodos de validação:
 
 * cnpj - Valida se o CNPJ é valido. Para testar, basta utilizar o site http://www.geradorcnpj.com/
 
-* cpf - Valida se o cpf é valido. Para testar, basta utilizar o site http://geradordecpf.
-org
+* cpf - Valida se o cpf é valido. Para testar, basta utilizar o site http://geradordecpf.org
 
 * data - Valida se a data está no formato 31/12/1969
 
