@@ -39,7 +39,7 @@ class ValidatorProvider extends ServiceProvider
     {
         return [        
             'celular'          => 'O campo :attribute não é um celular válido',
-            'celular_com_ddd'  => 'O campo :attribute não é um possui o formato válido de celular com DDD',
+            'celular_com_ddd'  => 'O campo :attribute não é um celular com DDD válido',
             'cnh'              => 'O campo :attribute não é uma carteira nacional de habilitação válida',
             'cnpj'             => 'O campo :attribute não é um CNPJ válido',
             'cpf'              => 'O campo :attribute não é um CPF válido',
@@ -47,7 +47,7 @@ class ValidatorProvider extends ServiceProvider
             'formato_cnpj'     => 'O campo :attribute não possui o formato válido de CNPJ',
             'formato_cpf'      => 'O campo :attribute não possui o formato válido de CPF',
             'telefone'         => 'O campo :attribute não é um telefone válido',
-            'telefone_com_ddd' => 'O campo :attribute não é um possui o formato válido de telefone com DDD',
+            'telefone_com_ddd' => 'O campo :attribute não é um telefone com DDD válido',
             'formato_cep'      => 'O campo :attribute não possui um formato válido de CEP',
             'formato_placa_de_veiculo'   => 'O campo :attribute não possui um formato válido de placa',
         ];
