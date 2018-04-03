@@ -28,9 +28,9 @@ Agora, para utilizar a validação, basta fazer o procedimento padrão do `Larav
 
 A diferença é que será possível usar os seguintes métodos de validação:
 
-* **`celular`** - Valida se o campo está no formato **99999-9999** ou **9999-9999**
+* **`celular`** - Valida se o campo está no formato (**`99999-9999`** ou **`9999-9999`**)
 
-*  **`celular_com_ddd`** - Valida se o campo está no formato **(99)99999-9999** ou **(99)9999-9999**
+*  **`celular_com_ddd`** - Valida se o campo está no formato (**`(99)99999-9999`** ou **`(99)9999-9999`** ou **`(99) 99999-9999`** ou **`(99) 9999-9999`**)
 
 * **`cnpj`** - Valida se o campo é um CNPJ válido. É possível gerar um CNPJ válido para seus testes utilizando o site [geradorcnpj.com](http://www.geradorcnpj.com/)
 
@@ -46,7 +46,7 @@ A diferença é que será possível usar os seguintes métodos de validação:
 
 * **`telefone`** - Valida se o campo tem umas máscara de telefone (**`9999-9999`**).
 
-* **`telefone_com_ddd`** - Valida se o campo tem umas máscara de telefone com DDD (**`(99)9999-9999`**).
+* **`telefone_com_ddd`** - Valida se o campo tem umas máscara de telefone com DDD (**`(99)9999-9999`** ou **`(99) 9999-9999`**).
 
 * **`formato_placa_de_veiculo`** - Valida se o campo tem o formato válido de uma placa de veículo.
 
