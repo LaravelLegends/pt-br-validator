@@ -16,6 +16,12 @@
             "LaravelLegends\\PtBrValidator\\": "src/pt-br-validator"
         }
     },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "LaravelLegends\\PtBrValidator\\ValidatorProvider"
+            ]
+    },
     "minimum-stability": "stable",
     "require-dev": {
         "orchestra/testbench": "3.1.*",
