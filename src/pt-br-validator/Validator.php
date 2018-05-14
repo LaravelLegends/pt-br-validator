@@ -21,7 +21,7 @@ class Validator extends BaseValidator
     */
     protected function validateCelularComDdd($attribute, $value)
     {
-        return preg_match('/^\(\d{2}\)\s?\d{4,5}-\d{4}$/', $value) > 0;
+        return preg_match('/^\(?\d{2}\)?\s?\d?\s?\d{4}[\s-]?\d{4}$/', $value) > 0;
     }
  
     /**
@@ -45,7 +45,7 @@ class Validator extends BaseValidator
     */
     protected function validateCelular($attribute, $value)
     {
-        return preg_match('/^\d{4,5}-\d{4}$/', $value) > 0;   
+        return preg_match('/^\d?\s?\d{4}[\s-]?\d{4}$/', $value) > 0;   
     }
 
     /**
@@ -67,7 +67,7 @@ class Validator extends BaseValidator
     */
     protected function validateFormatoCpf($attribute, $value)
     {
-        return preg_match('/^\d{3}\.\d{3}\.\d{3}-\d{2}$/', $value) > 0;
+        return preg_match('/^\d{3}\.?\d{3}\.?\d{3}-?\d{2}$/', $value) > 0;
     }
 
     /**
@@ -78,7 +78,7 @@ class Validator extends BaseValidator
     */
     protected function validateFormatoCnpj($attribute, $value)
     {
-        return preg_match('/^\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2}$/', $value) > 0;
+        return preg_match('/^\d{2}\.?\d{3}\.?\d{3}\/?\d{4}-?\d{2}$/', $value) > 0;
     }
 
     /**
