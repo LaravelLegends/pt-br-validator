@@ -21,6 +21,7 @@
             "providers": [
                 "LaravelLegends\\PtBrValidator\\ValidatorProvider"
             ]
+        }
     },
     "minimum-stability": "stable",
     "require-dev": {
