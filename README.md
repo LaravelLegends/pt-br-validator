@@ -6,11 +6,25 @@ Esta é uma biblioteca com algumas validações brasileiras.
 
 ## Instalação
 
-No arquivo `composer.json`, adicione:
+Navegue até a pasta do seu projeto, por exemplo:
+
+```
+cd /etc/www/projeto
+```
+
+E então execute:
+
+```
+composer require laravellegends/pt-br-validator:5.1.* --no-scripts
+```
+
+Ou então adicione no arquivo `composer.json`, adicione no seu `"require":`, exemplo:
 
 ```json
 {
-    "laravellegends/pt-br-validator" : "5.1.*"
+    "require": {
+        "laravellegends/pt-br-validator": "5.1.*"
+    }
 }
 ```
 
