@@ -1,4 +1,4 @@
-# Laravel 5 - Validações em Português
+# Laravel 6 - Validações em Português
 
 Esta é uma biblioteca com algumas validações brasileiras.
 
@@ -15,27 +15,7 @@ cd /etc/www/projeto
 E então execute:
 
 ```
-composer require laravellegends/pt-br-validator:5.1.* --no-scripts
-```
-
-Ou então adicione no arquivo `composer.json`, adicione no seu `"require":`, exemplo:
-
-```json
-{
-    "require": {
-        "laravellegends/pt-br-validator": "5.1.*"
-    }
-}
-```
-
-Rode o comando `composer update --no-scripts`.
-
-Após a instalação, adicione no arquivo `config/app.php` a seguinte linha:
-
-```php
-
-LaravelLegends\PtBrValidator\ValidatorProvider::class
-
+composer require laravellegends/pt-br-validator:6.*
 ```
 
 Agora, para utilizar a validação, basta fazer o procedimento padrão do `Laravel`.
@@ -70,7 +50,8 @@ Com isso, é possível fazer um teste simples
 
 
 ```php
-$validator = Validator::make(
+
+$validator = \Validator::make(
     ['telefone' => '(77)9999-3333'],
     ['telefone' => 'required|telefone_com_ddd']
 );
@@ -78,6 +59,34 @@ $validator = Validator::make(
 dd($validator->fails());
 
 ```
+
+Você pode utilizá-lo também com a instância de `Illuminate\Http\Request`, através do método `validate`.
+
+Veja:
+
+```php
+
+use Illuminate\Http\Request;
+
+// URL: /testando?telefone=3455-1222
+
+Route::get('testando', function (Request $request) {
+
+    try{
+
+        $dados = $request->validate([
+            'telefone' => 'required|telefone',
+            // outras validações aqui
+        ]);
+
+    } catch (\Illuminate\Validation\ValidationException $e) {
+        dd($e->errors());
+    }
+
+});
+
+```
+
 
 ### Customizando as mensagens
 
