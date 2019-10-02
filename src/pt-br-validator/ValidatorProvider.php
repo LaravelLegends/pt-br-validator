@@ -24,11 +24,9 @@ class ValidatorProvider extends ServiceProvider
     public function boot()
     {
 
-        $me = $this;
-
-        $this->app['validator']->resolver(function ($translator, $data, $rules, $messages, $customAttributes) use($me)
+        $this->app['validator']->resolver(function ($translator, $data, $rules, $messages, $customAttributes)
         {
-            $messages += $me->getMessages();
+            $messages += $this->getMessages();
             
             return new Validator($translator, $data, $rules, $messages, $customAttributes);
         });
