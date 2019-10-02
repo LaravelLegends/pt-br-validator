@@ -99,3 +99,13 @@ Por exemplo:
 Validator::make($valor, $regras, ['celular_com_ddd' => 'O campo :attribute não é um celular'])
 ```
 
+Ou através do método `messages` do seu Request criado pelo comando `php artisan make:request`.
+
+```php
+public function messages() {
+
+    return [
+        'campo.telefone' => 'Telefone não válido!'
+    ];
+}
+```
