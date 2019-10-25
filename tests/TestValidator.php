@@ -197,32 +197,15 @@ class TestValidator extends Orchestra\Testbench\TestCase
         $datasValidas = [
             '01/01/2001',
             '12/01/2004',
-
-            '31/11/2005',
-
             '12/02/2122',
-
-            //'14/13/2022',// falhou
-
-            //'32/11/2000',// falhou
-
-            //'00/11/2001', // falhou
-
-
-            // Alguém tem alguma ideia para melhorar isso (0001)?
-
             '20/11/0001',
-
             '01/11/2001',
-
             '30/11/2001',
-
             '17/11/2000',
         ];
 
 
-        foreach($datasValidas as $data)
-        {
+        foreach ($datasValidas as $data) {
             $correct = \Validator::make(
                 ['certo' => $data],
                 ['certo' => 'data']
@@ -233,6 +216,28 @@ class TestValidator extends Orchestra\Testbench\TestCase
 
     }
 
+    public function testInvalidDates()
+    {
+        $invalidDates = [
+            '14/13/2022',
+            '32/11/2000',
+            '00/11/2001',
+            '31/02/2001',
+            '30-01-2001',
+            '11/30/2001',
+            '2000/11/23',
+            '31/11/2005',
+        ];
+
+        foreach ($invalidDates as $date) {
+            $correct = \Validator::make(
+                ['certo' => $date],
+                ['certo' => 'data']
+            );
+
+            $this->assertFalse($correct->passes(), "Data {$date} está correta");
+        }
+    }
 
     public function testFormatoCep()
     {
