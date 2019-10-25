@@ -30,7 +30,7 @@ Ou então adicione no arquivo `composer.json`, adicione no seu `"require":`, exe
 
 Rode o comando `composer update --no-scripts`.
 
-Após a instalação, adicione no arquivo `config/app.php` a seguinte linha:
+Após a instalação, adicione no arquivo `config/app.php` dentro do array de `'providers'` a seguinte linha:
 
 ```php
 
