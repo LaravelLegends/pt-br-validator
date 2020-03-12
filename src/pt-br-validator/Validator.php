@@ -235,7 +235,7 @@ class Validator extends BaseValidator
 
     public function validateFormatoPlacaDeVeiculo($attribute, $value)
     {
-        return preg_match('/^[a-zA-Z]{3}\-?[0-9]{4}$/', $value) > 0;
+        return preg_match('/^[a-zA-Z]{3}\-?[0-9][0-9a-zA-Z][0-9]{2}$/', $value) > 0;
     }
 
 }
