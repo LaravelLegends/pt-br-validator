@@ -1,4 +1,4 @@
-# Laravel 6 - Validações em Português
+# Laravel 6+ - Validações em Português
 
 Esta é uma biblioteca com algumas validações brasileiras.
 
