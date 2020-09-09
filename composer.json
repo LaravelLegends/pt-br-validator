@@ -25,7 +25,7 @@
     },
     "minimum-stability": "stable",
     "require-dev": {
-        "orchestra/testbench-dusk": "^4.0 || ^5.0 || ^6.0",
+        "orchestra/testbench": "^4.0 || ^5.0 || ^6.0",
         "phpunit/phpunit": "^8.3 || ^9.0"
     }
 }
