@@ -280,6 +280,8 @@ class TestValidator extends Orchestra\Testbench\TestCase
 
             // placas mercosul
             'BEE4R22',
+            'FUM-0B05',
+            'FUM-5L58',
         ];
 
         foreach ($placasValidas as $placa) {
