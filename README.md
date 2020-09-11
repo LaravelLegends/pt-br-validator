@@ -42,7 +42,7 @@ A diferença é que será possível usar os seguintes métodos de validação:
 
 * **`telefone_com_ddd`** - Valida se o campo tem umas máscara de telefone com DDD (**`(99)9999-9999`** ou **`(99) 9999-9999`**).
 
-* **`formato_placa_de_veiculo`** - Valida se o campo tem o formato válido de uma placa de veículo.
+* **`formato_placa_de_veiculo`** - Valida se o campo tem o formato válido de uma placa de veículo (incluindo o padrão MERCOSUL).
 
 ### Testando
 
