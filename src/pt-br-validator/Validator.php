@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace LaravelLegends\PtBrValidator;
 
@@ -8,7 +8,7 @@ use Illuminate\Validation\Validator as BaseValidator;
 * This class is part of PHPLegends package
 *
 * @author Wallace de Souza Vizerra <wallacemaxters@gmail.com>
-* @author Guilherme Nascimento 
+* @author Guilherme Nascimento
 */
 
 class Validator extends BaseValidator
@@ -23,7 +23,7 @@ class Validator extends BaseValidator
     {
         return preg_match('/^\(\d{2}\)\s?\d{4,5}-\d{4}$/', $value) > 0;
     }
- 
+
     /**
     * Valida o formato do telefone junto com o ddd
     * @param string $attribute
@@ -45,7 +45,18 @@ class Validator extends BaseValidator
     */
     protected function validateCelular($attribute, $value)
     {
-        return preg_match('/^\d{4,5}-\d{4}$/', $value) > 0;   
+        return preg_match('/^\d{4,5}-\d{4}$/', $value) > 0;
+    }
+
+    /**
+     * Valida o formato do celular com código do país
+     * @param string $attribute
+     * @param string $value
+     * @return boolean
+     */
+    protected function validateCelularComCodigo($attribute, $value)
+    {
+        return preg_match('/^[+]\d{1,2}\s?\(\d{2}\)\s?\d{4,5}\-\d{4}$/', $value) > 0;
     }
 
     /**
@@ -57,6 +68,17 @@ class Validator extends BaseValidator
     protected function validateTelefone($attribute, $value)
     {
         return preg_match('/^\d{4}-\d{4}$/', $value) > 0;
+    }
+
+    /**
+     * Valida o formato do telefone com código do país
+     * @param string $attribute
+     * @param string $value
+     * @return boolean
+     */
+    protected function validateTelefoneComCodigo($attribute, $value)
+    {
+        return preg_match('/^[+]\d{1,2}\s?\(\d{2}\)\s?\d{4,5}\-\d{4}$/', $value) > 0;
     }
 
     /**
@@ -127,7 +149,7 @@ class Validator extends BaseValidator
         if (strlen($c) != 14) {
             return false;
 
-        } 
+        }
 
         // Remove sequências repetidas como "111111111111"
         // https://github.com/LaravelLegends/pt-br-validator/issues/4
@@ -163,7 +185,7 @@ class Validator extends BaseValidator
     protected function validateCnh($attribute, $value)
     {
         $ret = false;
-        
+
         if ((strlen($input = preg_replace('/[^\d]/', '', $value)) == 11)
             && (str_repeat($input[1], 11) != $input)) {
             $dsc = 0;
@@ -184,7 +206,7 @@ class Validator extends BaseValidator
             for ($i = 0, $j = 1, $v = 0; $i < 9; ++$i, ++$j) {
 
                 $v += (int) $input[$i] * $j;
-                
+
             }
 
             $vl2 = ($x = ($v % 11)) >= 10 ? 0 : $x - $dsc;
@@ -220,7 +242,7 @@ class Validator extends BaseValidator
      * @return boolean
     */
 
-    public function validateFormatoCep($attribute, $value) 
+    public function validateFormatoCep($attribute, $value)
     {
         return preg_match('/^\d{2}\.?\d{3}-\d{3}$/', $value) > 0;
     }
