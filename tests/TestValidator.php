@@ -9,10 +9,10 @@ class TestValidator extends Orchestra\Testbench\TestCase
     {
         return ['LaravelLegends\PtBrValidator\ValidatorProvider'];
     }
-    
+
     public function testTelefoneComDdd()
     {
-        
+
         $correct = \Validator::make(
             ['certo' => '(99)3500-4444'],
             ['certo' => 'telefone-com-ddd']
@@ -21,6 +21,25 @@ class TestValidator extends Orchestra\Testbench\TestCase
         $incorrect = \Validator::make(
             ['errado' => '(99)9-1926'],
             ['errado' => 'telefone-com-ddd']
+        );
+
+        $this->assertTrue($correct->passes());
+
+        $this->assertTrue($incorrect->fails());
+
+    }
+
+    public function testTelefoneComCodigo()
+    {
+
+        $correct = \Validator::make(
+            ['certo' => '+55(99)3500-4444'],
+            ['certo' => 'telefone-com-codigo']
+        );
+
+        $incorrect = \Validator::make(
+            ['errado' => '+5(99)9-1926'],
+            ['errado' => 'telefone-com-codigo']
         );
 
         $this->assertTrue($correct->passes());
@@ -39,6 +58,23 @@ class TestValidator extends Orchestra\Testbench\TestCase
         $incorrect = \Validator::make(
             ['errado' => '(99)800-1926'],
             ['errado' => 'celular-com-ddd']
+        );
+
+        $this->assertTrue($correct->passes());
+
+        $this->assertTrue($incorrect->fails());
+    }
+
+    public function testCelularComCodigo()
+    {
+        $correct = \Validator::make(
+            ['certo' => '+55(99)98899-4444'],
+            ['certo' => 'celular-com-codigo']
+        );
+
+        $incorrect = \Validator::make(
+            ['errado' => '+5(99)800-1926'],
+            ['errado' => 'celular-com-codigo']
         );
 
         $this->assertTrue($correct->passes());
@@ -96,7 +132,7 @@ class TestValidator extends Orchestra\Testbench\TestCase
 
         $this->assertTrue($correct->passes());
 
-        $this->assertTrue($incorrect->fails()); 
+        $this->assertTrue($incorrect->fails());
     }
 
     public function testCpfFormato()
@@ -113,7 +149,7 @@ class TestValidator extends Orchestra\Testbench\TestCase
 
         $this->assertTrue($correct->passes());
 
-        $this->assertTrue($incorrect->fails()); 
+        $this->assertTrue($incorrect->fails());
     }
 
 
@@ -131,7 +167,7 @@ class TestValidator extends Orchestra\Testbench\TestCase
 
         $this->assertTrue($correct->passes());
 
-        $this->assertTrue($incorrect->fails()); 
+        $this->assertTrue($incorrect->fails());
 
 
         // Correção do ISSUE: https://github.com/LaravelLegends/pt-br-validator/issues/4
@@ -171,7 +207,7 @@ class TestValidator extends Orchestra\Testbench\TestCase
 
         $this->assertTrue($correct->passes());
 
-        $this->assertTrue($incorrect->fails()); 
+        $this->assertTrue($incorrect->fails());
     }
 
     public function testCnh()
@@ -188,7 +224,7 @@ class TestValidator extends Orchestra\Testbench\TestCase
 
         $this->assertTrue($correct->passes());
 
-        $this->assertTrue($incorrect->fails()); 
+        $this->assertTrue($incorrect->fails());
     }
 
     public function testDate()
@@ -236,7 +272,7 @@ class TestValidator extends Orchestra\Testbench\TestCase
 
     public function testFormatoCep()
     {
-        
+
         $cepsValidos = [
             '32400-000',
             '32.400-000',
@@ -262,7 +298,7 @@ class TestValidator extends Orchestra\Testbench\TestCase
 
 
         foreach ($cepsInvalidos as $cep) {
-            
+
             $correct = \Validator::make(['cep' => $cep], ['cep' => 'formato_cep']);
 
             $this->assertTrue($correct->fails());
@@ -275,14 +311,19 @@ class TestValidator extends Orchestra\Testbench\TestCase
             'ABC-1234',
             'abc-1234',
             'ABC1234',
-            'aBc1234', 
-            'abc1234'
+            'aBc1234',
+            'abc1234',
+
+            // placas mercosul
+            'BEE4R22',
+            'FUM-0B05',
+            'FUM-5L58',
         ];
 
         foreach ($placasValidas as $placa) {
-            
+
             $correct = \Validator::make(
-                ['placa' => $placa], 
+                ['placa' => $placa],
                 ['placa' => 'formato_placa_de_veiculo']
             );
 
@@ -302,9 +343,9 @@ class TestValidator extends Orchestra\Testbench\TestCase
         ];
 
         foreach ($placasInvalidas as $placa) {
-            
+
             $incorrect = \Validator::make(
-                ['placa' => $placa], 
+                ['placa' => $placa],
                 ['placa' => 'formato_placa_de_veiculo']
             );
 
