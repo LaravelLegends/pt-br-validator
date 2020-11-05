@@ -227,48 +227,6 @@ class TestValidator extends Orchestra\Testbench\TestCase
         $this->assertTrue($incorrect->fails());
     }
 
-    public function testDate()
-    {
-
-        $datasValidas = [
-            '01/01/2001',
-            '12/01/2004',
-
-            '31/11/2005',
-
-            '12/02/2122',
-
-            //'14/13/2022',// falhou
-
-            //'32/11/2000',// falhou
-
-            //'00/11/2001', // falhou
-
-
-            // Alguém tem alguma ideia para melhorar isso (0001)?
-
-            '20/11/0001',
-
-            '01/11/2001',
-
-            '30/11/2001',
-
-            '17/11/2000',
-        ];
-
-
-        foreach($datasValidas as $data)
-        {
-            $correct = \Validator::make(
-                ['certo' => $data],
-                ['certo' => 'data']
-            );
-
-            $this->assertTrue($correct->passes(), "Data {$data} incorreta");
-        }
-
-    }
-
 
     public function testFormatoCep()
     {

@@ -24,42 +24,44 @@ class ValidatorProvider extends ServiceProvider
     public function boot()
     {
 
-        $this->app['validator']->resolver(function ($translator, $data, $rules, $messages, $customAttributes)
-        {
-            $messages += $this->getMessages();
-
-            return new Validator($translator, $data, $rules, $messages, $customAttributes);
-        });
-    }
-
-
-    protected function getMessages()
-    {
-        return [
-            'celular'                  => 'O campo :attribute não é um celular válido.',
-            'celular_com_ddd'          => 'O campo :attribute não é um celular com DDD válido.',
-            'celular_com_codigo'       => 'O campo :attribute não é um celular com código e DDD válido.',
-            'cnh'                      => 'O campo :attribute não é uma carteira nacional de habilitação válida.',
-            'cnpj'                     => 'O campo :attribute não é um CNPJ válido.',
-            'cpf'                      => 'O campo :attribute não é um CPF válido.',
-            'data'                     => 'O campo :attribute não é uma data com formato válido.',
-            'formato_cnpj'             => 'O campo :attribute não possui o formato válido de CNPJ.',
-            'formato_cpf'              => 'O campo :attribute não possui o formato válido de CPF.',
-            'telefone'                 => 'O campo :attribute não é um telefone válido.',
-            'telefone_com_ddd'         => 'O campo :attribute não é um telefone com DDD válido.',
-            'telefone_com_codigo'      => 'O campo :attribute não é um telefone com código e DDD válido.',
-            'formato_cep'              => 'O campo :attribute não possui um formato válido de CEP.',
-            'formato_placa_de_veiculo' => 'O campo :attribute não possui um formato válido de placa.',
-
+        $rules = [
+            'celular'                  => \LaravelLegends\PtBrValidator\Rules\Celular::class,
+            'celular_com_ddd'          => \LaravelLegends\PtBrValidator\Rules\CelularComDdd::class,
+            'celular_com_codigo'       => \LaravelLegends\PtBrValidator\Rules\CelularComCodigo ::class,
+            'cnh'                      => \LaravelLegends\PtBrValidator\Rules\Cnh::class,
+            'cnpj'                     => \LaravelLegends\PtBrValidator\Rules\Cnpj::class,
+            'cpf'                      => \LaravelLegends\PtBrValidator\Rules\Cpf::class,
+            'formato_cnpj'             => \LaravelLegends\PtBrValidator\Rules\FormatoCnpj::class,
+            'formato_cpf'              => \LaravelLegends\PtBrValidator\Rules\FormatoCpf::class,
+            'telefone'                 => \LaravelLegends\PtBrValidator\Rules\Telefone::class,
+            'telefone_com_ddd'         => \LaravelLegends\PtBrValidator\Rules\TelefoneComDdd::class,
+            'telefone_com_codigo'      => \LaravelLegends\PtBrValidator\Rules\TelefoneComCodigo::class,
+            'formato_cep'              => \LaravelLegends\PtBrValidator\Rules\FormatoCep::class,
+            'formato_placa_de_veiculo' => \LaravelLegends\PtBrValidator\Rules\FormatoPlacaDeVeiculo::class,
         ];
+
+        foreach ($rules as $name => $class) {
+
+            $rule = new $class;
+
+            $extension = static function ($attribute, $value) use($rule) {
+                return $rule->passes($attribute, $value);
+            };
+
+            $this->app['validator']->extend($name, $extension, $rule->message());
+        }
     }
+
 
     /**
      * Register the service provider.
      *
      * @return void
      */
-    public function register(){}
+    public function register()
+    {
+
+    }
 
     /**
      * Get the services provided by the provider.
@@ -68,7 +70,7 @@ class ValidatorProvider extends ServiceProvider
      */
     public function provides()
     {
-        return array();
+        return [];
     }
 
 }
