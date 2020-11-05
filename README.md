@@ -111,3 +111,24 @@ public function messages() {
     ];
 }
 ```
+
+
+### Acessando as Regras separadamente
+
+Caso tenha necessidade de acessar alguma regra separadamente, você poderá ter acesso as seguintes classes:
+
+```
+\LaravelLegends\PtBrValidator\Rules\Celular::class
+\LaravelLegends\PtBrValidator\Rules\CelularComDdd::class
+\LaravelLegends\PtBrValidator\Rules\CelularComCodigo::class
+\LaravelLegends\PtBrValidator\Rules\Cnh::class
+\LaravelLegends\PtBrValidator\Rules\Cnpj::class
+\LaravelLegends\PtBrValidator\Rules\Cpf::class
+\LaravelLegends\PtBrValidator\Rules\FormatoCnpj::class
+\LaravelLegends\PtBrValidator\Rules\FormatoCpf::class
+\LaravelLegends\PtBrValidator\Rules\Telefone::class
+\LaravelLegends\PtBrValidator\Rules\TelefoneComDdd::class
+\LaravelLegends\PtBrValidator\Rules\TelefoneComCodigo::class
+\LaravelLegends\PtBrValidator\Rules\FormatoCep::class
+\LaravelLegends\PtBrValidator\Rules\FormatoPlacaDeVeiculo::class
+```
