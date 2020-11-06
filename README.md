@@ -132,3 +132,27 @@ Caso tenha necessidade de acessar alguma regra separadamente, você poderá ter 
 \LaravelLegends\PtBrValidator\Rules\FormatoCep::class
 \LaravelLegends\PtBrValidator\Rules\FormatoPlacaDeVeiculo::class
 ```
+
+Por exemplo, se você deseja validar o formato do campo de um CPF, você pode utilizar a classe `LaravelLegends\PtBrValidator\Rules\FormatoCpf` da seguinte forma:
+
+```php
+use Illuminate\Http\Request;
+use LaravelLegends\PtBrValidator\Rules\FormatoCpf;
+
+// testando?cpf=valor_invalido
+
+Route::get('testando', function (Request $request) {
+
+    try{
+
+        $dados = $request->validate([
+            'cpf'  => ['required', new FormatoCpf]
+            // outras validações aqui
+        ]);
+
+    } catch (\Illuminate\Validation\ValidationException $e) {
+        dd($e->errors());
+    }
+
+});
+```
