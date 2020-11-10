@@ -46,6 +46,9 @@ A diferença é que será possível usar os seguintes métodos de validação:
 
 * **`formato_placa_de_veiculo`** - Valida se o campo tem o formato válido de uma placa de veículo (incluindo o padrão MERCOSUL).
 
+* **`formato_pis`** - Valida se o campo tem o formato de PIS.
+* **`pis`**  - Valida se o PIS é válido.
+
 ### Testando
 
 Com isso, é possível fazer um teste simples
