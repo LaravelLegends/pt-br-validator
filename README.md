@@ -134,6 +134,8 @@ Caso tenha necessidade de acessar alguma regra separadamente, você poderá ter 
 \LaravelLegends\PtBrValidator\Rules\TelefoneComCodigo::class
 \LaravelLegends\PtBrValidator\Rules\FormatoCep::class
 \LaravelLegends\PtBrValidator\Rules\FormatoPlacaDeVeiculo::class
+\LaravelLegends\PtBrValidator\Rules\FormatoPis::class
+\LaravelLegends\PtBrValidator\Rules\Pis::class
 ```
 
 Por exemplo, se você deseja validar o formato do campo de um CPF, você pode utilizar a classe `LaravelLegends\PtBrValidator\Rules\FormatoCpf` da seguinte forma:
