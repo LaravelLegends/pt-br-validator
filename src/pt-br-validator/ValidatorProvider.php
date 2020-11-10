@@ -38,6 +38,8 @@ class ValidatorProvider extends ServiceProvider
             'telefone_com_codigo'      => \LaravelLegends\PtBrValidator\Rules\TelefoneComCodigo::class,
             'formato_cep'              => \LaravelLegends\PtBrValidator\Rules\FormatoCep::class,
             'formato_placa_de_veiculo' => \LaravelLegends\PtBrValidator\Rules\FormatoPlacaDeVeiculo::class,
+            'formato_pis'              => \LaravelLegends\PtBrValidator\Rules\FormatoPis::class,
+            'pis'                      => \LaravelLegends\PtBrValidator\Rules\Pis::class,
         ];
 
         foreach ($rules as $name => $class) {

@@ -311,4 +311,34 @@ class TestValidator extends Orchestra\Testbench\TestCase
         }
     }
 
+
+
+    public function testFormatoPis()
+    {
+        $validator = \Validator::make(['valido' => '276.96730.83-0'], [ 'valido' => 'formato_pis' ]);
+
+        $this->assertTrue($validator->passes());
+
+        $validator = \Validator::make(['valido' => '276.96730.830'], [ 'valido' => 'formato_pis' ]);
+
+        $this->assertTrue($validator->fails());
+    }
+
+
+    public function testPis()
+    {
+
+        foreach (['690.30244.88-6', '042.33768.05-2', '971.78508.77-5'] as $pis) {
+
+            $validator = \Validator::make(['valido' => $pis], [ 'valido' => 'pis']);
+    
+            $this->assertTrue($validator->passes());
+        }
+
+
+        $validator = \Validator::make(['valido' => '290.30244.88-5'], [ 'valido' => 'pis' ]);
+
+        $this->assertTrue($validator->fails());
+    }  
+
 }

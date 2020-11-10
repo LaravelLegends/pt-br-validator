@@ -205,5 +205,33 @@ class TestRules extends Orchestra\Testbench\TestCase
         $this->assertTrue($validator->fails());
     }
 
+    public function testFormatoPis()
+    {
+        $validator = \Validator::make(['valido' => '276.96730.83-0'], [ 'valido' => ['required', new \LaravelLegends\PtBrValidator\Rules\FormatoPis]]);
+
+        $this->assertTrue($validator->passes());
+
+        $validator = \Validator::make(['valido' => '276.96730.830'], [ 'valido' => ['required', new \LaravelLegends\PtBrValidator\Rules\FormatoPis]]);
+
+        $this->assertTrue($validator->fails());
+    }
+
+
+    public function testPis()
+    {
+
+        foreach (['690.30244.88-6', '042.33768.05-2', '971.78508.77-5'] as $pis) {
+
+            $validator = \Validator::make(['valido' => $pis], [ 'valido' => ['required', new \LaravelLegends\PtBrValidator\Rules\Pis]]);
+    
+            $this->assertTrue($validator->passes());
+        }
+
+
+        $validator = \Validator::make(['valido' => '290.30244.88-5'], [ 'valido' => ['required', new \LaravelLegends\PtBrValidator\Rules\Pis]]);
+
+        $this->assertTrue($validator->fails());
+    }  
+
 
 }
