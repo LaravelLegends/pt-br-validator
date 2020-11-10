@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\Rule;
 
 
 /**
- * Validação para Formato do PIS
+ * Validação para PIS
  * 
  * @author Wallace Maxters <wallacemaxters@gmail.com>
  */
