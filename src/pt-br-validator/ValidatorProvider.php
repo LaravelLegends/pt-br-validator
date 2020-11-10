@@ -27,7 +27,7 @@ class ValidatorProvider extends ServiceProvider
         $rules = [
             'celular'                  => \LaravelLegends\PtBrValidator\Rules\Celular::class,
             'celular_com_ddd'          => \LaravelLegends\PtBrValidator\Rules\CelularComDdd::class,
-            'celular_com_codigo'       => \LaravelLegends\PtBrValidator\Rules\CelularComCodigo ::class,
+            'celular_com_codigo'       => \LaravelLegends\PtBrValidator\Rules\CelularComCodigo::class,
             'cnh'                      => \LaravelLegends\PtBrValidator\Rules\Cnh::class,
             'cnpj'                     => \LaravelLegends\PtBrValidator\Rules\Cnpj::class,
             'cpf'                      => \LaravelLegends\PtBrValidator\Rules\Cpf::class,
