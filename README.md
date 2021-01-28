@@ -25,6 +25,7 @@ Esta é uma biblioteca com algumas validações brasileiras.
     </tr>
 </table>
 
+
 ## Instalação
 
 Navegue até a pasta do seu projeto, por exemplo:
@@ -69,6 +70,9 @@ A diferença é que será possível usar os seguintes métodos de validação:
 
 * **`formato_pis`** - Valida se o campo tem o formato de PIS.
 * **`pis`**  - Valida se o PIS é válido.
+
+* **`cpf_ou_cnpj`**  - Valida se o campo é um CPF ou CNPJ
+* **`formato_cpf_ou_cnpj`** - Valida se o campo contém um formato de CPF ou CNPJ
 
 ### Testando
 
@@ -157,6 +161,8 @@ Caso tenha necessidade de acessar alguma regra separadamente, você poderá ter 
 \LaravelLegends\PtBrValidator\Rules\FormatoPlacaDeVeiculo::class
 \LaravelLegends\PtBrValidator\Rules\FormatoPis::class
 \LaravelLegends\PtBrValidator\Rules\Pis::class
+\LaravelLegends\PtBrValidator\Rules\CpfOuCnpj::class
+\LaravelLegends\PtBrValidator\Rules\FormatoCpfOuCnpj::class
 ```
 
 Por exemplo, se você deseja validar o formato do campo de um CPF, você pode utilizar a classe `LaravelLegends\PtBrValidator\Rules\FormatoCpf` da seguinte forma:
