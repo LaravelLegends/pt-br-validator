@@ -1,0 +1,8 @@
+title: Laravel PT-BR-validator
+description: Uma biblioteca contendo validações para dados brasileiros para o framework  Laravel
+google_analytics: 
+show_downloads: true
+theme: jekyll-theme-architect
+
+gems:
+  - jekyll-mentions
