@@ -1,6 +1,8 @@
-# Laravel 6+ - Validações em Português
+# pt-br-validator: Validações brasileiras para Laravel.
 
-Esta é uma biblioteca com algumas validações brasileiras.
+Esta biblioteca adiciona validações brasileira ao Laravel, como CPF, CNPJ, Placa de Carro, CEP, Telefone, Celular e afins.
+
+:brazil::brazil::brazil: 
 
 [![Build Status](https://travis-ci.org/LaravelLegends/pt-br-validator.svg?branch=master)](https://travis-ci.org/LaravelLegends/pt-br-validator)
 
