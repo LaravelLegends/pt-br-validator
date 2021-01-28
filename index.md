@@ -1,12 +1,10 @@
-# Laravel 6+ - Validações em Português
+# laravelLegends/pt-br-validator
 
-Esta é uma biblioteca com algumas validações brasileiras.
-
-[![Build Status](https://travis-ci.org/LaravelLegends/pt-br-validator.svg?branch=master)](https://travis-ci.org/LaravelLegends/pt-br-validator)
+Essa biblioteca adiciona validações brasileiras comuns ao seu projeto Laravel. Você poderá validar alguns dados como PIS, CPF, CNPJ, e até alguns formatos, como Telefone, Celular, CEP e afins.
 
 ## Instalação
 
-Navegue até a pasta do seu projeto, por exemplo:
+Para instalar, navegue até a pasta do seu projeto, por exemplo:
 
 ```
 cd /etc/www/projeto
@@ -64,156 +62,6 @@ $validator = \Validator::make(
 dd($validator->fails());
 
 ```
-#Laravel 5 - Validação em Português
-2
-​
-3
-Essa é uma biblioteca com algumas validações brasileiras.
-4
-​
-5
-​
-6
-#Instalação
-7
-​
-8
-No arquivo `composer.json`, adicione:
-9
-​
-10
-```json
-11
-{
-12
-        "phplegends/pt-br-validator" : "2.*"
-13
-}
-14
-```
-15
-​
-16
-Rode o comando `composer update --no-scripts`.
-17
-​
-18
-Após a instalação, adicione no arquivo `config/app.php` a seguinte linha:
-19
-​
-20
-```php
-21
-​
-22
-PHPLegends\PtBrValidator\ValidatorProvider::class
-23
-​
-24
-```
-25
-​
-26
-Para utilizar a validação agora, basta fazer o procedimento padrão do `Laravel`.
-27
-​
-28
-A diferença é que agora, você terá os seguintes métodos de validação:
-29
-​
-30
-* celular - Valida um celular através do formato 99999-9999 ou 9999-9999
-31
-​
-32
-* celular_com_ddd -  Valida um celular através do formato (99)99999-9999 ou (99)9999-9999
-33
-​
-34
-* cnpj - Valida se o CNPJ é valido. Para testar, basta utilizar o site http://www.geradorcnpj.com/
-35
-​
-36
-* cpf - Valida se o cpf é valido. Para testar, basta utilizar o site http://geradordecpf.
-37
-org
-38
-​
-39
-* data - Valida se a data está no formato 31/12/1969
-40
-​
-41
-* formato_cnpj - Valida se a mascará do CNPJ é válida
-42
-​
-43
-* formato_cpf - Valida se a mascará do cpf está certo. 999.999.999-99
-44
-​
-45
-* telefone - Valida um telefone através do formato 9999-9999
-46
-​
-47
-* telefone_com_ddd - Valida um telefone através do formato (99)9999-9999
-48
-​
-49
-​
-50
-Então, podemos usar um simples teste:
-51
-​
-52
-​
-53
-```php
-54
-$validator = Validator::make(
-55
-        ['telefone' => '(77)9999-3333'],
-56
-        ['telefone' => 'required|telefone_com_ddd']
-57
-);
-58
-​
-59
-dd($validator->fails());
-60
-​
-61
-```
-62
-​
-63
-​
-64
-Já existe nessa biblioteca algumas mensagens padrão para as validações de cada um dos items citados acima. 
-65
-​
-66
-Para modificar isso, basta adicionar ao terceiro parâmetro de `Validator::make` um array, contendo o índice com o nome da validação e o valor com a mensagem desejada.
-67
-​
-68
-​
-69
-Exemplo:
-70
-​
-71
-​
-72
-```php
-73
-Validator::make($valor, $regras, ['celular_com_ddd' => 'O campo :attribute não é um celular'])
-74
-```
-75
-​
-76
 
 Você pode utilizá-lo também com a instância de `Illuminate\Http\Request`, através do método `validate`.
 
