@@ -40,6 +40,8 @@ class ValidatorProvider extends ServiceProvider
             'formato_placa_de_veiculo' => \LaravelLegends\PtBrValidator\Rules\FormatoPlacaDeVeiculo::class,
             'formato_pis'              => \LaravelLegends\PtBrValidator\Rules\FormatoPis::class,
             'pis'                      => \LaravelLegends\PtBrValidator\Rules\Pis::class,
+            'cpf_ou_cnpj'              => \LaravelLegends\PtBrValidator\Rules\CpfOuCnpj::class,
+            'formato_cpf_ou_cnpj'      => \LaravelLegends\PtBrValidator\Rules\FormatoCpfOuCnpj::class,
         ];
 
         foreach ($rules as $name => $class) {

@@ -234,4 +234,60 @@ class TestRules extends Orchestra\Testbench\TestCase
     }  
 
 
+    public function testCpfOuCnpj()
+    {
+
+
+        foreach (['981.366.228-09', '56.611.605/0001-73', '49851807000127'] as $valor) {
+
+            $validator = \Validator::make(
+                ['valido' => $valor], 
+                ['valido' => ['required', new \LaravelLegends\PtBrValidator\Rules\CpfOuCnpj]]
+            );
+
+            $this->assertTrue($validator->passes());
+        }
+
+        foreach (['000.366.228-09', '11.611.605/0001-73', '22851807000127'] as $valor) {
+
+            $validator = \Validator::make(
+                ['invalido' => $valor], 
+                ['invalido' => ['required', new \LaravelLegends\PtBrValidator\Rules\CpfOuCnpj]]
+            );
+
+            $this->assertTrue($validator->fails());
+        }
+    }
+
+
+    public function testFormatoCpfOuCnpj()
+    {
+
+
+        foreach (['981.366.228-09', '000.000.000-00', '56.611.605/0001-73'] as $valor) {
+
+            $validator = \Validator::make(
+                ['valido' => $valor], 
+                ['valido' => ['required', new \LaravelLegends\PtBrValidator\Rules\FormatoCpfOuCnpj]]
+            );
+
+            $this->assertTrue($validator->passes());
+        }
+
+        foreach (['0000.366.228-09', '11.6211.605/0001-73', '22851807000127'] as $valor) {
+
+            $validator = \Validator::make(
+                ['invalido' => $valor], 
+                ['invalido' => ['required', new \LaravelLegends\PtBrValidator\Rules\FormatoCpfOuCnpj]]
+            );
+
+            $this->assertTrue($validator->fails());
+        }
+    }
+
+
+
+
+
+
 }
