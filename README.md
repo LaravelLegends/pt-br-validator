@@ -20,7 +20,7 @@ Esta é uma biblioteca com algumas validações brasileiras.
         <td>5.1.*</td>
     </tr>
     <tr>
-        <td>^7.0 || ^8.0</td>
+        <td>^6.0 || ^7.0 || ^8.0</td>
         <td>^8.0</td>
     </tr>
 </table>
