@@ -4,11 +4,15 @@ namespace LaravelLegends\PtBrValidator\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 
+/**
+ * @author Wallace Maxters <wallacemaxters@gmail.com>
+ */
 class TelefoneComDdd implements Rule
 {
 
     /**
      * Valida o formato do telefone junto com o ddd
+     * 
      * @param string $attribute
      * @param string $value
      * @return boolean

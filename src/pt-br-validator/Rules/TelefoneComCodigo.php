@@ -4,12 +4,16 @@ namespace LaravelLegends\PtBrValidator\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 
+/**
+ * @author Wallace Maxters <wallacemaxters@gmail.com>
+ */
 class TelefoneComCodigo implements Rule
 {
 
     
     /**
      * Valida o formato do telefone com código do país
+     * 
      * @param string $attribute
      * @param string $value
      * @return boolean

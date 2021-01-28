@@ -4,16 +4,17 @@ namespace LaravelLegends\PtBrValidator\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 
+/**
+ * @author Wallace Maxters <wallacemaxters@gmail.com>
+*/
 class CelularComDdd implements Rule
-{
-
-    
+{    
     /**
-      * Valida o formato do celular junto com o ddd
-      *
-      * @param string $attribute
-      * @param string $value
-      * @return boolean
+     * Valida o formato do celular junto com o ddd
+     *
+     * @param string $attribute
+     * @param string $value
+     * @return boolean
     */
     public function passes($attribute, $value)
     {
@@ -22,6 +23,6 @@ class CelularComDdd implements Rule
 
     public function message()
     {
-    	return 'O campo :attribute não é um celular com DDD válido.';
+      return 'O campo :attribute não é um celular com DDD válido.';
     }
 }

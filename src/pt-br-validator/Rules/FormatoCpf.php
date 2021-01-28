@@ -4,13 +4,13 @@ namespace LaravelLegends\PtBrValidator\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 
+/**
+ * @author Wallace Maxters <wallacemaxters@gmail.com>
+ */
 class FormatoCpf implements Rule
 {
 
-    
-    
     /**
-     * 
      * Valida o formato do cpf
      * 
      * @param string $attribute

@@ -5,7 +5,6 @@ namespace LaravelLegends\PtBrValidator\Rules;
 use Illuminate\Contracts\Validation\Rule;
 
 /**
- * 
  * @author Wallace Maxters <wallacemaxters@gmail.com>
 */
 class FormatoCpfOuCnpj implements Rule
