@@ -46,11 +46,7 @@ class Cnpj implements Rule
 
         for ($i = 0, $n = 0; $i <= 12; $n += $c[$i] * $b[$i++]);
 
-        if ($c[13] != ((($n %= 11) < 2) ? 0 : 11 - $n)) {
-            return false;
-        }
-
-        return true;
+        return ($c[13] == ((($n %= 11) < 2) ? 0 : 11 - $n));
 
     }
 
