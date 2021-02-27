@@ -35,11 +35,7 @@ class Cpf implements Rule
 
         for ($s = 11, $n = 0, $i = 0; $s >= 2; $n += $c[$i++] * $s--);
 
-        if ($c[10] != ((($n %= 11) < 2) ? 0 : 11 - $n)) {
-            return false;
-        }
-
-        return true;
+        return ($c[10] == ((($n %= 11) < 2) ? 0 : 11 - $n));
     }
 
     public function message()
