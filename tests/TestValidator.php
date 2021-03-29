@@ -118,6 +118,63 @@ class TestValidator extends Orchestra\Testbench\TestCase
     }
 
 
+    public function testCpfOuCnpj()
+    {
+        
+        $corretos = ['66.445.044/0001-33', '175.313.110-38'];
+
+        foreach ($corretos as $correto) {
+
+            $validator = \Validator::make(
+                ['certo' => $correto],
+                ['certo' => 'cpf_ou_cnpj']
+            );
+
+            $this->assertTrue($validator->passes(), 'Value ' . $correto . ' is invalid for CPF ou CNPJ');
+        }
+
+        $incorretos = ['66.445.044/0001-11', '175.313.110-31'];
+
+        foreach ($incorretos as $valor) {
+
+            $validator = \Validator::make(
+                ['certo' => $valor],
+                ['certo' => 'cpf_ou_cnpj']
+            );
+
+            $this->assertTrue($validator->fails(), 'Value ' . $valor . ' is invalid for CPF ou CNPJ');
+        }
+    }
+
+    public function testFormatoCpfOuCnpj()
+    {
+
+        $corretos = ['66.445.044/0001-33', '175.313.110-38'];
+
+        foreach ($corretos as $correto) {
+
+            $validator = \Validator::make(
+                ['certo' => $correto],
+                ['certo' => 'formato_cpf_ou_cnpj']
+            );
+
+            $this->assertTrue($validator->passes(), 'Value ' . $correto . ' is invalid for CPF ou CNPJ');
+        }
+
+        $incorretos = ['66445044000111', '17531311031'];
+
+        foreach ($incorretos as $valor) {
+
+            $validator = \Validator::make(
+                ['certo' => $valor],
+                ['certo' => 'formato_cpf_ou_cnpj']
+            );
+
+            $this->assertTrue($validator->fails(), 'Value ' . $valor . ' is invalid for CPF ou CNPJ');
+        }
+    }
+
+
     public function testCpf()
     {
         $correct = \Validator::make(
