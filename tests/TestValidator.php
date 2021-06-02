@@ -29,6 +29,25 @@ class TestValidator extends Orchestra\Testbench\TestCase
 
     }
 
+    public function testTelefoneComDddComEspacos()
+    {
+
+        $correct = \Validator::make(
+            ['certo' => '(99)3500 4444'],
+            ['certo' => 'telefone-com-ddd']
+        );
+
+        $incorrect = \Validator::make(
+            ['errado' => '(99 )9 1926'],
+            ['errado' => 'telefone-com-ddd']
+        );
+
+        $this->assertTrue($correct->passes());
+
+        $this->assertTrue($incorrect->fails());
+
+    }
+
     public function testTelefoneComCodigo()
     {
 
@@ -57,6 +76,23 @@ class TestValidator extends Orchestra\Testbench\TestCase
 
         $incorrect = \Validator::make(
             ['errado' => '(99)800-1926'],
+            ['errado' => 'celular-com-ddd']
+        );
+
+        $this->assertTrue($correct->passes());
+
+        $this->assertTrue($incorrect->fails());
+    }
+
+    public function testCelularComDddComEspacos()
+    {
+        $correct = \Validator::make(
+            ['certo' => '(99)98899 4444'],
+            ['certo' => 'celular-com-ddd']
+        );
+
+        $incorrect = \Validator::make(
+            ['errado' => '(99 )800 1926'],
             ['errado' => 'celular-com-ddd']
         );
 
