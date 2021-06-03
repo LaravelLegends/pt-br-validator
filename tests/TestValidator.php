@@ -34,12 +34,12 @@ class TestValidator extends Orchestra\Testbench\TestCase
 
         $correct = \Validator::make(
             ['certo' => '(99)3500 4444'],
-            ['certo' => 'telefone-com-ddd']
+            ['certo' => 'telefone_com_ddd_com_espacos']
         );
 
         $incorrect = \Validator::make(
             ['errado' => '(99 )9 1926'],
-            ['errado' => 'telefone-com-ddd']
+            ['errado' => 'telefone_com_ddd_com_espacos']
         );
 
         $this->assertTrue($correct->passes());
@@ -88,12 +88,12 @@ class TestValidator extends Orchestra\Testbench\TestCase
     {
         $correct = \Validator::make(
             ['certo' => '(99)98899 4444'],
-            ['certo' => 'celular-com-ddd']
+            ['certo' => 'celular_com_ddd_com_espacos']
         );
 
         $incorrect = \Validator::make(
             ['errado' => '(99 )800 1926'],
-            ['errado' => 'celular-com-ddd']
+            ['errado' => 'celular_com_ddd_com_espacos']
         );
 
         $this->assertTrue($correct->passes());
