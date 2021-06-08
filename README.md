@@ -45,25 +45,25 @@ Agora, para utilizar a validação, basta fazer o procedimento padrão do `Larav
 
 A diferença é que será possível usar os seguintes métodos de validação:
 
-|           REGRA          |                                                                       Descrição                                                                       |   |   |   |
-|:------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------:|---|---|---|
-| Celular                  | Valida se o campo está no formato (**`99999-9999`** ou **`9999-9999`**)                                                                               |   |   |   |
-| celular_com_ddd          | Valida se o campo está no formato (**`(99)99999-9999`** ou **`(99)9999-9999`** ou **`(99) 99999-9999`** ou **`(99) 9999-9999`**)                      |   |   |   |
-| celular_com_codigo       | Valida se o campo está no formato `+99(99)99999-9999` ou +99(99)9999-9999.                                                                            |   |   |   |
-| cnpj                     | Valida se o campo é um CNPJ válido. É possível gerar um CNPJ válido para seus testes utilizando o site [geradorcnpj.com](http://www.geradorcnpj.com/) |   |   |   |
-| cpf                      | Valida se o campo é um CPF válido. É possível gerar um CPF válido para seus testes utilizando o site [geradordecpf.org](http://geradordecpf.org)      |   |   |   |
-| formato_cnpj             | Valida se o campo tem uma máscara de CNPJ correta (**`99.999.999/9999-99`**).                                                                         |   |   |   |
-| formato_cpf              | Valida se o campo tem uma máscara de CPF correta (**`999.999.999-99`**).                                                                              |   |   |   |
-| formato_cep              | Valida se o campo tem uma máscara de correta (**`99999-999`** ou **`99.999-999`**).                                                                   |   |   |   |
-| telefone                 | Valida se o campo tem umas máscara de telefone (**`9999-9999`**).                                                                                     |   |   |   |
-| telefone_com_ddd         | Valida se o campo tem umas máscara de telefone com DDD (**`(99)9999-9999`**).                                                                         |   |   |   |
-| telefone_com_codigo      | Valida se o campo tem umas máscara de telefone com DDD (**`+55(99)9999-9999`**).                                                                      |   |   |   |
-| formato_placa_de_veiculo | Valida se o campo tem o formato válido de uma placa de veículo (incluindo o padrão MERCOSUL).                                                         |   |   |   |
-| formato_pis              | Valida se o campo tem o formato de PIS.                                                                                                               |   |   |   |
-| pis                      | Valida se o PIS é válido.                                                                                                                             |   |   |   |
-| cpf_ou_cnpj              | Valida se o campo é um CPF ou CNPJ                                                                                                                    |   |   |   |
-| formato_cpf_ou_cnpj      | Valida se o campo contém um formato de CPF ou CNPJ                                                                                                    |   |   |   |
-| uf                       | Valida se o campo contém uma sigla de Estado válido (UF)                                                                                              |   |   |   |
+|           REGRA          |                                                                       Descrição                                                                       |
+|:-------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------:|
+| Celular                  | Valida se o campo está no formato (**`99999-9999`** ou **`9999-9999`**)                                                                               |
+| celular_com_ddd          | Valida se o campo está no formato (**`(99)99999-9999`** ou **`(99)9999-9999`** ou **`(99) 99999-9999`** ou **`(99) 9999-9999`**)                      |
+| celular_com_codigo       | Valida se o campo está no formato `+99(99)99999-9999` ou +99(99)9999-9999.                                                                            |
+| cnpj                     | Valida se o campo é um CNPJ válido. É possível gerar um CNPJ válido para seus testes utilizando o site [geradorcnpj.com](http://www.geradorcnpj.com/) |
+| cpf                      | Valida se o campo é um CPF válido. É possível gerar um CPF válido para seus testes utilizando o site [geradordecpf.org](http://geradordecpf.org)      |
+| formato_cnpj             | Valida se o campo tem uma máscara de CNPJ correta (**`99.999.999/9999-99`**).                                                                         |
+| formato_cpf              | Valida se o campo tem uma máscara de CPF correta (**`999.999.999-99`**).                                                                              |
+| formato_cep              | Valida se o campo tem uma máscara de correta (**`99999-999`** ou **`99.999-999`**).                                                                   |
+| telefone                 | Valida se o campo tem umas máscara de telefone (**`9999-9999`**).                                                                                     |
+| telefone_com_ddd         | Valida se o campo tem umas máscara de telefone com DDD (**`(99)9999-9999`**).                                                                         |
+| telefone_com_codigo      | Valida se o campo tem umas máscara de telefone com DDD (**`+55(99)9999-9999`**).                                                                      |
+| formato_placa_de_veiculo | Valida se o campo tem o formato válido de uma placa de veículo (incluindo o padrão MERCOSUL).                                                         |
+| formato_pis              | Valida se o campo tem o formato de PIS.                                                                                                               |
+| pis                      | Valida se o PIS é válido.                                                                                                                             |
+| cpf_ou_cnpj              | Valida se o campo é um CPF ou CNPJ                                                                                                                    |
+| formato_cpf_ou_cnpj      | Valida se o campo contém um formato de CPF ou CNPJ                                                                                                    |
+| uf                       | Valida se o campo contém uma sigla de Estado válido (UF)                                                                                              |
 
 ## Testando as validações do PtBrValidator
 
