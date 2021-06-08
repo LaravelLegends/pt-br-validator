@@ -4,7 +4,6 @@ use LaravelLegends\PtBrValidator\Validator;
 
 class TestValidator extends Orchestra\Testbench\TestCase
 {
-
     protected function getPackageProviders($app)
     {
         return ['LaravelLegends\PtBrValidator\ValidatorProvider'];
@@ -12,7 +11,6 @@ class TestValidator extends Orchestra\Testbench\TestCase
 
     public function testTelefoneComDdd()
     {
-
         $correct = \Validator::make(
             ['certo' => '(99)3500-4444'],
             ['certo' => 'telefone-com-ddd']
@@ -26,12 +24,10 @@ class TestValidator extends Orchestra\Testbench\TestCase
         $this->assertTrue($correct->passes());
 
         $this->assertTrue($incorrect->fails());
-
     }
 
     public function testTelefoneComCodigo()
     {
-
         $correct = \Validator::make(
             ['certo' => '+55(99)3500-4444'],
             ['certo' => 'telefone-com-codigo']
@@ -45,7 +41,6 @@ class TestValidator extends Orchestra\Testbench\TestCase
         $this->assertTrue($correct->passes());
 
         $this->assertTrue($incorrect->fails());
-
     }
 
     public function testCelularComDdd()
@@ -181,9 +176,7 @@ class TestValidator extends Orchestra\Testbench\TestCase
             '22.222.222/2222-22',
         ];
 
-        foreach ($repeats as $cnpj)
-        {
-
+        foreach ($repeats as $cnpj) {
             $validator = \Validator::make(['cnpj' => $cnpj], [
                 'cnpj' => 'required|cnpj'
             ]);
@@ -230,7 +223,6 @@ class TestValidator extends Orchestra\Testbench\TestCase
 
     public function testFormatoCep()
     {
-
         $cepsValidos = [
             '32400-000',
             '32.400-000',
@@ -240,7 +232,6 @@ class TestValidator extends Orchestra\Testbench\TestCase
 
 
         foreach ($cepsValidos as $cep) {
-
             $correct = \Validator::make(['cep' => $cep], ['cep' => 'formato_cep']);
 
             $this->assertTrue($correct->passes());
@@ -256,7 +247,6 @@ class TestValidator extends Orchestra\Testbench\TestCase
 
 
         foreach ($cepsInvalidos as $cep) {
-
             $correct = \Validator::make(['cep' => $cep], ['cep' => 'formato_cep']);
 
             $this->assertTrue($correct->fails());
@@ -279,7 +269,6 @@ class TestValidator extends Orchestra\Testbench\TestCase
         ];
 
         foreach ($placasValidas as $placa) {
-
             $correct = \Validator::make(
                 ['placa' => $placa],
                 ['placa' => 'formato_placa_de_veiculo']
@@ -301,7 +290,6 @@ class TestValidator extends Orchestra\Testbench\TestCase
         ];
 
         foreach ($placasInvalidas as $placa) {
-
             $incorrect = \Validator::make(
                 ['placa' => $placa],
                 ['placa' => 'formato_placa_de_veiculo']
@@ -327,9 +315,7 @@ class TestValidator extends Orchestra\Testbench\TestCase
 
     public function testPis()
     {
-
         foreach (['690.30244.88-6', '042.33768.05-2', '971.78508.77-5'] as $pis) {
-
             $validator = \Validator::make(['valido' => $pis], [ 'valido' => 'pis']);
     
             $this->assertTrue($validator->passes());
@@ -339,16 +325,13 @@ class TestValidator extends Orchestra\Testbench\TestCase
         $validator = \Validator::make(['valido' => '290.30244.88-5'], [ 'valido' => 'pis' ]);
 
         $this->assertTrue($validator->fails());
-    }  
+    }
 
     public function testCpfOuCnpj()
     {
-
-
         foreach (['981.366.228-09', '56.611.605/0001-73', '49851807000127'] as $valor) {
-
             $validator = \Validator::make(
-                ['valido' => $valor], 
+                ['valido' => $valor],
                 ['valido' => 'cpf_ou_cnpj']
             );
 
@@ -356,9 +339,8 @@ class TestValidator extends Orchestra\Testbench\TestCase
         }
 
         foreach (['000.366.228-09', '11.611.605/0001-73', '22851807000127'] as $valor) {
-
             $validator = \Validator::make(
-                ['invalido' => $valor], 
+                ['invalido' => $valor],
                 ['invalido' => 'cpf_ou_cnpj']
             );
 
@@ -369,12 +351,9 @@ class TestValidator extends Orchestra\Testbench\TestCase
 
     public function testFormatoCpfOuCnpj()
     {
-
-
         foreach (['981.366.228-09', '000.000.000-00', '56.611.605/0001-73'] as $valor) {
-
             $validator = \Validator::make(
-                ['valido' => $valor], 
+                ['valido' => $valor],
                 ['valido' => 'formato_cpf_ou_cnpj']
             );
 
@@ -382,9 +361,8 @@ class TestValidator extends Orchestra\Testbench\TestCase
         }
 
         foreach (['0000.366.228-09', '11.6211.605/0001-73', '22851807000127'] as $valor) {
-
             $validator = \Validator::make(
-                ['invalido' => $valor], 
+                ['invalido' => $valor],
                 ['invalido' => 'formato_cpf_ou_cnpj']
             );
 
@@ -392,4 +370,51 @@ class TestValidator extends Orchestra\Testbench\TestCase
         }
     }
 
+    public function testUf()
+    {
+        $testes = [
+            'AC' => true,
+            'AL' => true,
+            'AP' => true,
+            'AM' => true,
+            'BA' => true,
+            'CE' => true,
+            'DF' => true,
+            'ES' => true,
+            'GO' => true,
+            'MA' => true,
+            'MS' => true,
+            'MT' => true,
+            'MG' => true,
+            'PA' => true,
+            'PB' => true,
+            'PR' => true,
+            'PE' => true,
+            'PI' => true,
+            'RJ' => true,
+            'RN' => true,
+            'RS' => true,
+            'RO' => true,
+            'RR' => true,
+            'SC' => true,
+            'SP' => true,
+            'SE' => true,
+            'TO' => true,
+
+            'FALSE' => false,
+            'mg' => false,
+            'sp' => false,
+            'MO' => false,
+            'CB' => false,
+        ];
+
+        foreach ($testes as $valor => $boolean) {
+            $validator = \Validator::make(
+                ['valido' => $valor],
+                ['valido' => 'uf']
+            );
+
+            $this->assertTrue($boolean ? $validator->passes() : $validator->fails());
+        }
+    }
 }

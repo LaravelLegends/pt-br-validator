@@ -23,7 +23,6 @@ class ValidatorProvider extends ServiceProvider
 
     public function boot()
     {
-
         $rules = [
             'celular'                  => \LaravelLegends\PtBrValidator\Rules\Celular::class,
             'celular_com_ddd'          => \LaravelLegends\PtBrValidator\Rules\CelularComDdd::class,
@@ -42,13 +41,13 @@ class ValidatorProvider extends ServiceProvider
             'pis'                      => \LaravelLegends\PtBrValidator\Rules\Pis::class,
             'cpf_ou_cnpj'              => \LaravelLegends\PtBrValidator\Rules\CpfOuCnpj::class,
             'formato_cpf_ou_cnpj'      => \LaravelLegends\PtBrValidator\Rules\FormatoCpfOuCnpj::class,
+            'uf'                       => \LaravelLegends\PtBrValidator\Rules\Uf::class,
         ];
 
         foreach ($rules as $name => $class) {
-
             $rule = new $class;
 
-            $extension = static function ($attribute, $value) use($rule) {
+            $extension = static function ($attribute, $value) use ($rule) {
                 return $rule->passes($attribute, $value);
             };
 
@@ -64,7 +63,6 @@ class ValidatorProvider extends ServiceProvider
      */
     public function register()
     {
-
     }
 
     /**
@@ -76,5 +74,4 @@ class ValidatorProvider extends ServiceProvider
     {
         return [];
     }
-
 }
