@@ -55,8 +55,6 @@ A diferença é que será possível usar os seguintes métodos de validação:
 
 * **`cpf`** - Valida se o campo é um CPF válido. É possível gerar um CPF válido para seus testes utilizando o site [geradordecpf.org](http://geradordecpf.org) 
 
-* <strike>**`data`** - Valida se o campo é uma data no formato `DD/MM/YYYY`. Por exemplo: `31/12/1969`.</strike> - Removido na versão 8.0 >=. Utilize opcionalmente `dateformat:d/m/Y` no Laravel.
-
 * **`formato_cnpj`** - Valida se o campo tem uma máscara de CNPJ correta (**`99.999.999/9999-99`**).
 
 * **`formato_cpf`** - Valida se o campo tem uma máscara de CPF correta (**`999.999.999-99`**).
@@ -190,3 +188,10 @@ Route::get('testando', function (Request $request) {
 
 });
 ```
+
+
+## Changelog
+
+- 8.0.3 - Validação `uf` adicionada.
+- 8.0.2 - Validação `cpf_ou_cnpj`
+- 5.2.1 - Validação `cpf_ou_cnpj`
