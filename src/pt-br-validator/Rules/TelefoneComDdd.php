@@ -5,7 +5,7 @@ namespace LaravelLegends\PtBrValidator\Rules;
 use Illuminate\Contracts\Validation\Rule;
 
 /**
- * @author Wallace Maxters <wallacemaxters@gmail.com>
+ * @author Samuel Lujan <samuel_lujan@hotmail.com>
  */
 class TelefoneComDdd implements Rule
 {
@@ -20,7 +20,7 @@ class TelefoneComDdd implements Rule
 
     public function passes($attribute, $value)
     {
-        return preg_match('/^\(\d{2}\)\s?\d{4}-\d{4}$/', $value) > 0;
+        return preg_match('/^\(\d{2}\)\s?\d{4}-?\s?\d{4}$/', $value) > 0;
     }
 
 

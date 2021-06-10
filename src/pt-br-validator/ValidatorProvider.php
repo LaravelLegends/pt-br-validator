@@ -27,7 +27,6 @@ class ValidatorProvider extends ServiceProvider
         $rules = [
             'celular'                       => \LaravelLegends\PtBrValidator\Rules\Celular::class,
             'celular_com_ddd'               => \LaravelLegends\PtBrValidator\Rules\CelularComDdd::class,
-            'celular_com_ddd_com_espacos'   => \LaravelLegends\PtBrValidator\Rules\CelularComDddComEspacos::class,
             'celular_com_codigo'            => \LaravelLegends\PtBrValidator\Rules\CelularComCodigo::class,
             'cnh'                           => \LaravelLegends\PtBrValidator\Rules\Cnh::class,
             'cnpj'                          => \LaravelLegends\PtBrValidator\Rules\Cnpj::class,
@@ -36,7 +35,6 @@ class ValidatorProvider extends ServiceProvider
             'formato_cpf'                   => \LaravelLegends\PtBrValidator\Rules\FormatoCpf::class,
             'telefone'                      => \LaravelLegends\PtBrValidator\Rules\Telefone::class,
             'telefone_com_ddd'              => \LaravelLegends\PtBrValidator\Rules\TelefoneComDdd::class,
-            'telefone_com_ddd_com_espacos'  => \LaravelLegends\PtBrValidator\Rules\TelefoneComDddComEspacos::class,
             'telefone_com_codigo'           => \LaravelLegends\PtBrValidator\Rules\TelefoneComCodigo::class,
             'formato_cep'                   => \LaravelLegends\PtBrValidator\Rules\FormatoCep::class,
             'formato_placa_de_veiculo'      => \LaravelLegends\PtBrValidator\Rules\FormatoPlacaDeVeiculo::class,

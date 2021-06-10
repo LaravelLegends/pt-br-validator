@@ -27,19 +27,6 @@ class TestRules extends Orchestra\Testbench\TestCase
         $this->assertTrue($validator->passes());
     }
 
-    public function testCelularComDddComEspaco()
-    {
-        $validator = \Validator::make([
-            'valido' => '(31)99999 5555'
-        ], [
-            'valido' => ['required', new \LaravelLegends\PtBrValidator\Rules\CelularComDddComEspacos]
-        ]);
-
-
-        $this->assertTrue($validator->passes());
-    }
-
-
     public function testCelularComCodigo()
     {
         $validator = \Validator::make([
@@ -77,22 +64,6 @@ class TestRules extends Orchestra\Testbench\TestCase
 
         $this->assertTrue($validator->passes());
     }
-
-
-
-    public function testTelefoneComDddComEspacos()
-    {
-        $validator = \Validator::make([
-            'valido' => '(31)9999 5555'
-        ], [
-            'valido' => ['required', new \LaravelLegends\PtBrValidator\Rules\TelefoneComDddComEspacos]
-        ]);
-
-
-        $this->assertTrue($validator->passes());
-    }
-
-
 
     public function testTelefoneComCodigo()
     {
