@@ -186,3 +186,10 @@ Route::get('testando', function (Request $request) {
 - 8.0.3 - Validação `uf` adicionada.
 - 8.0.2 - Validação `cpf_ou_cnpj`
 - 5.2.1 - Validação `cpf_ou_cnpj`
+
+
+
+
+### Sugestões
+
+[Eloquent Filter](https://github.com/LaravelLegends/eloquent-filter): Essa biblioteca foi desenvolvida com o propósito de criar facilmente filtros de pesquisa para APIs REST. Com esta biblioteca, você vai economizar várias linhas de códigos, bem como manter um padrão global para filtros de pesquisa em sua aplicação escrita em Laravel.
