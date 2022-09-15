@@ -417,4 +417,44 @@ class TestValidator extends Orchestra\Testbench\TestCase
             $this->assertTrue($boolean ? $validator->passes() : $validator->fails());
         }
     }
+
+
+    public function testCns()
+    {
+        foreach ([
+            '272004493990007', 
+            '140776230420006',
+            '254446765170004',
+            '912176122180009',
+            '174295560290007',
+            '103409299850000',
+            '773398431180002',
+        ] as $valor) {
+
+            $validator = \Validator::make(
+                ['valido' => $valor], 
+                ['valido' => ['required', 'cns']]
+            );
+
+            $this->assertTrue($validator->passes(), "O número $valor é inválido");
+        }
+
+        foreach ([
+            '072004493990007', 
+            '000000000000000',
+            '111111111111111',
+            '222222222222222',
+            '999999999999999',
+            '123456789123456'
+
+        ] as $valor) {
+
+            $validator = \Validator::make(
+                ['valido' => $valor], 
+                ['valido' => ['required', 'cns']]
+            );
+
+            $this->assertTrue($validator->fails(), "O número $valor é VERDADEIRO");
+        }
+    }
 }
