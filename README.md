@@ -144,6 +144,7 @@ Caso tenha necessidade de acessar alguma regra separadamente, você poderá ter 
 \LaravelLegends\PtBrValidator\Rules\Cnh::class
 \LaravelLegends\PtBrValidator\Rules\Cnpj::class
 \LaravelLegends\PtBrValidator\Rules\Cpf::class
+\LaravelLegends\PtBrValidator\Rules\Cns::class
 \LaravelLegends\PtBrValidator\Rules\FormatoCnpj::class
 \LaravelLegends\PtBrValidator\Rules\FormatoCpf::class
 \LaravelLegends\PtBrValidator\Rules\Telefone::class
