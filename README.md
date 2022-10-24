@@ -185,6 +185,7 @@ Route::get('testando', function (Request $request) {
 
 ## Changelog
 
+- 9.1.0 - Validação `cns` (cartão nacional de saúde) adicionada.
 - 8.0.3 - Validação `uf` adicionada.
 - 8.0.2 - Validação `cpf_ou_cnpj`
 - 5.2.1 - Validação `cpf_ou_cnpj`
