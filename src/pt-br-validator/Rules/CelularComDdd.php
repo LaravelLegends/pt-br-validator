@@ -18,6 +18,7 @@ class CelularComDdd implements Rule
     */
     public function passes($attribute, $value)
     {
+        if (!$atibute == null)
         return preg_match('/^\(\d{2}\)\s?\d{4,5}-\d{4}$/', $value) > 0;
     }
 
