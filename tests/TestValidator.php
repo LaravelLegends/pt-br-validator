@@ -1,22 +1,23 @@
 <?php
 
-use LaravelLegends\PtBrValidator\Validator;
+use Illuminate\Support\Facades\Validator;
+use LaravelLegends\PtBrValidatorValidator;
 
 class TestValidator extends Orchestra\Testbench\TestCase
 {
     protected function getPackageProviders($app)
     {
-        return ['LaravelLegends\PtBrValidator\ValidatorProvider'];
+        return [LaravelLegends\PtBrValidator\ValidatorProvider::class];
     }
 
     public function testTelefoneComDdd()
     {
-        $correct = \Validator::make(
+        $correct = Validator::make(
             ['certo' => '(99)3500-4444'],
             ['certo' => 'telefone-com-ddd']
         );
 
-        $incorrect = \Validator::make(
+        $incorrect = Validator::make(
             ['errado' => '(99)9-1926'],
             ['errado' => 'telefone-com-ddd']
         );
@@ -28,12 +29,12 @@ class TestValidator extends Orchestra\Testbench\TestCase
 
     public function testTelefoneComCodigo()
     {
-        $correct = \Validator::make(
+        $correct = Validator::make(
             ['certo' => '+55(99)3500-4444'],
             ['certo' => 'telefone-com-codigo']
         );
 
-        $incorrect = \Validator::make(
+        $incorrect = Validator::make(
             ['errado' => '+5(99)9-1926'],
             ['errado' => 'telefone-com-codigo']
         );
@@ -45,12 +46,12 @@ class TestValidator extends Orchestra\Testbench\TestCase
 
     public function testCelularComDdd()
     {
-        $correct = \Validator::make(
+        $correct = Validator::make(
             ['certo' => '(99)98899-4444'],
             ['certo' => 'celular-com-ddd']
         );
 
-        $incorrect = \Validator::make(
+        $incorrect = Validator::make(
             ['errado' => '(99)800-1926'],
             ['errado' => 'celular-com-ddd']
         );
@@ -62,12 +63,12 @@ class TestValidator extends Orchestra\Testbench\TestCase
 
     public function testCelularComCodigo()
     {
-        $correct = \Validator::make(
+        $correct = Validator::make(
             ['certo' => '+55(99)98899-4444'],
             ['certo' => 'celular-com-codigo']
         );
 
-        $incorrect = \Validator::make(
+        $incorrect = Validator::make(
             ['errado' => '+5(99)800-1926'],
             ['errado' => 'celular-com-codigo']
         );
@@ -80,12 +81,12 @@ class TestValidator extends Orchestra\Testbench\TestCase
 
     public function testCelular()
     {
-        $correct = \Validator::make(
+        $correct = Validator::make(
             ['certo' => '98899-4444', 'outro_certo' => '9800-1936'],
             ['certo' => 'celular', 'outro_certo' => 'celular']
         );
 
-        $incorrect = \Validator::make(
+        $incorrect = Validator::make(
             ['errado' => '900-1926'],
             ['errado' => 'celular']
         );
@@ -97,12 +98,12 @@ class TestValidator extends Orchestra\Testbench\TestCase
 
     public function testTelefone()
     {
-        $correct = \Validator::make(
+        $correct = Validator::make(
             ['certo' => '3598-4550'],
             ['certo' => 'telefone']
         );
 
-        $incorrect = \Validator::make(
+        $incorrect = Validator::make(
             ['errado' => '99800-1926'],
             ['errado' => 'telefone']
         );
@@ -115,12 +116,12 @@ class TestValidator extends Orchestra\Testbench\TestCase
 
     public function testCpf()
     {
-        $correct = \Validator::make(
+        $correct = Validator::make(
             ['certo' => '094.050.986-59'],
             ['certo' => 'cpf']
         );
 
-        $incorrect = \Validator::make(
+        $incorrect = Validator::make(
             ['errado' => '99800-1926'],
             ['errado' => 'cpf']
         );
@@ -132,12 +133,12 @@ class TestValidator extends Orchestra\Testbench\TestCase
 
     public function testCpfFormato()
     {
-        $correct = \Validator::make(
+        $correct = Validator::make(
             ['certo' => '094.050.986-59'],
             ['certo' => 'formato-cpf']
         );
 
-        $incorrect = \Validator::make(
+        $incorrect = Validator::make(
             ['errado' => '094.050.986-591'],
             ['errado' => 'formato-cpf']
         );
@@ -150,12 +151,12 @@ class TestValidator extends Orchestra\Testbench\TestCase
 
     public function testCnpj()
     {
-        $correct = \Validator::make(
+        $correct = Validator::make(
             ['certo' => '53.084.587/0001-20'],
             ['certo' => 'cnpj']
         );
 
-        $incorrect = \Validator::make(
+        $incorrect = Validator::make(
             ['errado' => '51.084.587/0001-20'],
             ['errado' => 'cnpj']
         );
@@ -177,7 +178,7 @@ class TestValidator extends Orchestra\Testbench\TestCase
         ];
 
         foreach ($repeats as $cnpj) {
-            $validator = \Validator::make(['cnpj' => $cnpj], [
+            $validator = Validator::make(['cnpj' => $cnpj], [
                 'cnpj' => 'required|cnpj'
             ]);
 
@@ -188,12 +189,12 @@ class TestValidator extends Orchestra\Testbench\TestCase
 
     public function testCnpjFormato()
     {
-        $correct = \Validator::make(
+        $correct = Validator::make(
             ['certo' => '53.084.587/0001-20'],
             ['certo' => 'formato-cnpj']
         );
 
-        $incorrect = \Validator::make(
+        $incorrect = Validator::make(
             ['errado' => '51.084.587/000120'],
             ['errado' => 'formato-cnpj']
         );
@@ -205,12 +206,12 @@ class TestValidator extends Orchestra\Testbench\TestCase
 
     public function testCnh()
     {
-        $correct = \Validator::make(
+        $correct = Validator::make(
             ['certo' => '96784547943'],
             ['certo' => 'cnh']
         );
 
-        $incorrect = \Validator::make(
+        $incorrect = Validator::make(
             ['errado' => '96784547999'],
             ['errado' => 'cnh']
         );
@@ -232,7 +233,7 @@ class TestValidator extends Orchestra\Testbench\TestCase
 
 
         foreach ($cepsValidos as $cep) {
-            $correct = \Validator::make(['cep' => $cep], ['cep' => 'formato_cep']);
+            $correct = Validator::make(['cep' => $cep], ['cep' => 'formato_cep']);
 
             $this->assertTrue($correct->passes());
         }
@@ -247,7 +248,7 @@ class TestValidator extends Orchestra\Testbench\TestCase
 
 
         foreach ($cepsInvalidos as $cep) {
-            $correct = \Validator::make(['cep' => $cep], ['cep' => 'formato_cep']);
+            $correct = Validator::make(['cep' => $cep], ['cep' => 'formato_cep']);
 
             $this->assertTrue($correct->fails());
         }
@@ -269,7 +270,7 @@ class TestValidator extends Orchestra\Testbench\TestCase
         ];
 
         foreach ($placasValidas as $placa) {
-            $correct = \Validator::make(
+            $correct = Validator::make(
                 ['placa' => $placa],
                 ['placa' => 'formato_placa_de_veiculo']
             );
@@ -290,7 +291,7 @@ class TestValidator extends Orchestra\Testbench\TestCase
         ];
 
         foreach ($placasInvalidas as $placa) {
-            $incorrect = \Validator::make(
+            $incorrect = Validator::make(
                 ['placa' => $placa],
                 ['placa' => 'formato_placa_de_veiculo']
             );
@@ -303,11 +304,11 @@ class TestValidator extends Orchestra\Testbench\TestCase
 
     public function testFormatoPis()
     {
-        $validator = \Validator::make(['valido' => '276.96730.83-0'], [ 'valido' => 'formato_pis' ]);
+        $validator = Validator::make(['valido' => '276.96730.83-0'], [ 'valido' => 'formato_pis' ]);
 
         $this->assertTrue($validator->passes());
 
-        $validator = \Validator::make(['valido' => '276.96730.830'], [ 'valido' => 'formato_pis' ]);
+        $validator = Validator::make(['valido' => '276.96730.830'], [ 'valido' => 'formato_pis' ]);
 
         $this->assertTrue($validator->fails());
     }
@@ -316,13 +317,13 @@ class TestValidator extends Orchestra\Testbench\TestCase
     public function testPis()
     {
         foreach (['690.30244.88-6', '042.33768.05-2', '971.78508.77-5'] as $pis) {
-            $validator = \Validator::make(['valido' => $pis], [ 'valido' => 'pis']);
+            $validator = Validator::make(['valido' => $pis], [ 'valido' => 'pis']);
     
             $this->assertTrue($validator->passes());
         }
 
 
-        $validator = \Validator::make(['valido' => '290.30244.88-5'], [ 'valido' => 'pis' ]);
+        $validator = Validator::make(['valido' => '290.30244.88-5'], [ 'valido' => 'pis' ]);
 
         $this->assertTrue($validator->fails());
     }
@@ -330,7 +331,7 @@ class TestValidator extends Orchestra\Testbench\TestCase
     public function testCpfOuCnpj()
     {
         foreach (['981.366.228-09', '56.611.605/0001-73', '49851807000127'] as $valor) {
-            $validator = \Validator::make(
+            $validator = Validator::make(
                 ['valido' => $valor],
                 ['valido' => 'cpf_ou_cnpj']
             );
@@ -339,7 +340,7 @@ class TestValidator extends Orchestra\Testbench\TestCase
         }
 
         foreach (['000.366.228-09', '11.611.605/0001-73', '22851807000127'] as $valor) {
-            $validator = \Validator::make(
+            $validator = Validator::make(
                 ['invalido' => $valor],
                 ['invalido' => 'cpf_ou_cnpj']
             );
@@ -352,7 +353,7 @@ class TestValidator extends Orchestra\Testbench\TestCase
     public function testFormatoCpfOuCnpj()
     {
         foreach (['981.366.228-09', '000.000.000-00', '56.611.605/0001-73'] as $valor) {
-            $validator = \Validator::make(
+            $validator = Validator::make(
                 ['valido' => $valor],
                 ['valido' => 'formato_cpf_ou_cnpj']
             );
@@ -361,7 +362,7 @@ class TestValidator extends Orchestra\Testbench\TestCase
         }
 
         foreach (['0000.366.228-09', '11.6211.605/0001-73', '22851807000127'] as $valor) {
-            $validator = \Validator::make(
+            $validator = Validator::make(
                 ['invalido' => $valor],
                 ['invalido' => 'formato_cpf_ou_cnpj']
             );
@@ -409,7 +410,7 @@ class TestValidator extends Orchestra\Testbench\TestCase
         ];
 
         foreach ($testes as $valor => $boolean) {
-            $validator = \Validator::make(
+            $validator = Validator::make(
                 ['valido' => $valor],
                 ['valido' => 'uf']
             );
@@ -431,7 +432,7 @@ class TestValidator extends Orchestra\Testbench\TestCase
             '773398431180002',
         ] as $valor) {
 
-            $validator = \Validator::make(
+            $validator = Validator::make(
                 ['valido' => $valor], 
                 ['valido' => ['required', 'cns']]
             );
@@ -449,7 +450,7 @@ class TestValidator extends Orchestra\Testbench\TestCase
 
         ] as $valor) {
 
-            $validator = \Validator::make(
+            $validator = Validator::make(
                 ['valido' => $valor], 
                 ['valido' => ['required', 'cns']]
             );

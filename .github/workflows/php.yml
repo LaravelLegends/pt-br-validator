@@ -2,14 +2,19 @@ name: PHP Composer
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master, dev ]
   pull_request:
     branches: [ master ]
 
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.operating-system }}
+    strategy:
+      matrix:
+        # operating-system: [ubuntu-latest, windows-latest, macOS-latest]
+        operating-system: [ubuntu-latest]
+        php-versions: ['7.2', '7.3', '7.4', '8.0']
 
     steps:
     - uses: actions/checkout@v2
@@ -28,6 +33,6 @@ jobs:
 
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress
-      
+
     - name: Run test suite
       run: composer test

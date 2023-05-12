@@ -5,3 +5,4 @@ composer.lock
 pt-br-validator.sublime-project
 pt-br-validator.sublime-workspace
 /.phpintel/
+.phpunit.cache/
