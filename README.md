@@ -193,6 +193,11 @@ Route::get('testando', function (Request $request) {
 
 
 
-### Sugestões
+## Sugestões
 
 [Eloquent Filter](https://github.com/LaravelLegends/eloquent-filter): Essa biblioteca foi desenvolvida com o propósito de criar facilmente filtros de pesquisa para APIs REST. Com esta biblioteca, você vai economizar várias linhas de códigos, bem como manter um padrão global para filtros de pesquisa em sua aplicação escrita em Laravel.
+
+
+## Doações
+
+[Paypal](https://www.paypal.com/donate/?business=KCAGBVD5TJLUL&no_recurring=0&item_name=Ajude+a+sustentar+algu%C3%A9m+que+apoia+o+open-source+%3A%29&currency_code=BRL)
