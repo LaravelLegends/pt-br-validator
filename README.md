@@ -4,8 +4,6 @@ Esta biblioteca adiciona validações brasileira ao Laravel, como CPF, CNPJ, Pla
 
 :brazil::brazil::brazil:
 
-[![Build Status](https://travis-ci.org/LaravelLegends/pt-br-validator.svg?branch=master)](https://travis-ci.org/LaravelLegends/pt-br-validator)
-
 ## Versões
 
 <table>
