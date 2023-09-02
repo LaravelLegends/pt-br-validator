@@ -47,6 +47,14 @@ E então execute:
 composer require laravellegends/pt-br-validator
 ```
 
+Caso não seja adicionado, adicionar o provider em /DIRETORIO_APLICACAO/config/app.php
+```
+'providers' => [ 
+...
+LaravelLegends\PtBrValidator\ValidatorProvider::class
+...
+]
+```
 Agora, para utilizar a validação, basta fazer o procedimento padrão do `Laravel`.
 
 A diferença é que será possível usar os seguintes métodos de validação:
