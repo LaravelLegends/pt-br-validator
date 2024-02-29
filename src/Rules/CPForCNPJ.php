@@ -1,8 +1,9 @@
 <?php
 
-namespace ValidatorDocs\Rules;
+namespace PtBrValidator\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
+use PtBrValidator\Support\Helpers;
 
 class CPForCNPJ implements Rule
 {
@@ -11,7 +12,6 @@ class CPForCNPJ implements Rule
      */
     public function passes($attribute, $value): bool
     {
-
         return (new Cpf)->passes($attribute, $value) || (new Cnpj)->passes($attribute, $value);
     }
 
@@ -20,6 +20,6 @@ class CPForCNPJ implements Rule
      */
     public function message(): string
     {
-        return 'O campo :attribute não é um CPF ou CNPJ válido.';
+        return Helpers::getMessage('cpf_or_cnpj');
     }
 }

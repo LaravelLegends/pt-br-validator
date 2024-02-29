@@ -1,8 +1,9 @@
 <?php
 
-namespace ValidatorDocs\Rules;
+namespace PtBrValidator\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
+use PtBrValidator\Support\Helpers;
 
 class FormatCPForCNPJ implements Rule
 {
@@ -11,7 +12,7 @@ class FormatCPForCNPJ implements Rule
      */
     public function passes($attribute, $value): bool
     {
-        return (new FormatoCpf)->passes($attribute, $value) || (new FormatoCnpj)->passes($attribute, $value);
+        return (new FormatCPF)->passes($attribute, $value) || (new FormatCNPJ)->passes($attribute, $value);
     }
 
     /**
@@ -19,6 +20,6 @@ class FormatCPForCNPJ implements Rule
      */
     public function message(): string
     {
-        return 'O campo :attribute não possui o formato válido de CPF ou CNPJ.';
+        return Helpers::getMessage('format_cpf_or_cnpj');
     }
 }

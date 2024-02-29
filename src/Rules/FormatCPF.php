@@ -1,8 +1,9 @@
 <?php
 
-namespace ValidatorDocs\Rules;
+namespace PtBrValidator\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
+use PtBrValidator\Support\Helpers;
 
 class FormatCPF implements Rule
 {
@@ -19,6 +20,6 @@ class FormatCPF implements Rule
      */
     public function message(): string
     {
-        return 'O campo :attribute não possui o formato válido de CPF.';
+        return Helpers::getMessage('format_cpf');
     }
 }

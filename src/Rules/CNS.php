@@ -1,8 +1,9 @@
 <?php
 
-namespace ValidatorDocs\Rules;
+namespace PtBrValidator\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
+use PtBrValidator\Support\Helpers;
 
 class CNS implements Rule
 {
@@ -28,17 +29,14 @@ class CNS implements Rule
      */
     public function message(): string
     {
-        return 'O campo :attribute não é um CNS válido.';
+        return Helpers::getMessage('cns');
     }
 
     /**
      * Valida o CNS menor que 7 no primeiro dígito
-     *
-     * @return bool
      */
-    protected function cns(string $cns)
+    protected function cns(string $cns): bool
     {
-
         $pis = substr($cns, 0, 11);
 
         for ($soma = 0, $i = 0, $j = 15; $i <= 10; $i++, $j--) {
@@ -50,7 +48,6 @@ class CNS implements Rule
         $dv != 11 ?: $dv = 0;
 
         if ($dv === 10) {
-
             for ($soma = 2, $i = 1, $j = 15; $i <= 10; $i++, $j--) {
                 $soma += intval(substr($pis, $i - 1, $i)) * $j;
             }
@@ -71,7 +68,7 @@ class CNS implements Rule
     /**
      * Valida o CNS que inicia por 7, 8 ou 9
      */
-    protected function cnsProv(string $cns)
+    protected function cnsProv(string $cns): bool
     {
         if (strlen($cns) != 15) {
             return false;

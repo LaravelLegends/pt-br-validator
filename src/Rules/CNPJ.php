@@ -1,8 +1,10 @@
 <?php
 
-namespace ValidatorDocs\Rules;
+namespace PtBrValidator\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
+use Illuminate\Support\Str;
+use PtBrValidator\Support\Helpers;
 
 class CNPJ implements Rule
 {
@@ -11,7 +13,7 @@ class CNPJ implements Rule
      */
     public function passes($attribute, $value): bool
     {
-        $c = preg_replace('/\D/', '', $value);
+        $c = Str::onlyNumbers($value);
 
         $b = [6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
 
@@ -24,7 +26,6 @@ class CNPJ implements Rule
         // https://github.com/LaravelLegends/pt-br-validator/issues/4
 
         elseif (preg_match("/^{$c[0]}{14}$/", $c) > 0) {
-
             return false;
         }
 
@@ -49,6 +50,6 @@ class CNPJ implements Rule
      */
     public function message(): string
     {
-        return 'O campo :attribute não é um CNPJ válido.';
+        return Helpers::getMessage('cnpj');
     }
 }

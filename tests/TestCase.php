@@ -3,7 +3,7 @@
 namespace Tests;
 
 use Orchestra\Testbench\TestCase as TestbenchTestCase;
-use ValidatorDocs\ServiceProvider;
+use PtBrValidator\ServiceProvider;
 
 abstract class TestCase extends TestbenchTestCase
 {

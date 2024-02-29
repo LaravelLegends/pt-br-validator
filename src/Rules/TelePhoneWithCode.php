@@ -1,8 +1,9 @@
 <?php
 
-namespace ValidatorDocs\Rules;
+namespace PtBrValidator\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
+use PtBrValidator\Support\Helpers;
 
 class TelePhoneWithCode implements Rule
 {
@@ -19,6 +20,6 @@ class TelePhoneWithCode implements Rule
      */
     public function message(): string
     {
-        return 'O campo :attribute não é um telefone com código e DDD válido.';
+        return Helpers::getMessage('telephone_with_code');
     }
 }

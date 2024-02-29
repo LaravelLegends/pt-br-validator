@@ -1,8 +1,9 @@
 <?php
 
-namespace ValidatorDocs\Rules;
+namespace PtBrValidator\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
+use PtBrValidator\Support\Helpers;
 
 class FormatCNPJ implements Rule
 {
@@ -19,6 +20,6 @@ class FormatCNPJ implements Rule
      */
     public function message(): string
     {
-        return 'O campo :attribute não possui o formato válido de CNPJ.';
+        return Helpers::getMessage('format_cnpj');
     }
 }

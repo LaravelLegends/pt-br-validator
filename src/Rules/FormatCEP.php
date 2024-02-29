@@ -1,8 +1,9 @@
 <?php
 
-namespace ValidatorDocs\Rules;
+namespace PtBrValidator\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
+use PtBrValidator\Support\Helpers;
 
 class FormatCEP implements Rule
 {
@@ -19,6 +20,6 @@ class FormatCEP implements Rule
      */
     public function message(): string
     {
-        return 'O campo :attribute não possui um formato válido de CEP.';
+        return Helpers::getMessage('format_cep');
     }
 }

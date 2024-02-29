@@ -1,10 +1,11 @@
 <?php
 
-namespace ValidatorDocs;
+namespace PtBrValidator;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\ServiceProvider as LaravelServiceProvider;
-use ValidatorDocs\Rules as Rules;
+use PtBrValidator\Rules as Rules;
+use PtBrValidator\Support\Macros;
 
 class ServiceProvider extends LaravelServiceProvider
 {
@@ -21,6 +22,8 @@ class ServiceProvider extends LaravelServiceProvider
      */
     public function boot(): void
     {
+        Macros::register();
+
         $rules = $this->getRules();
 
         $rules->each(function ($class, $name) {
@@ -35,13 +38,21 @@ class ServiceProvider extends LaravelServiceProvider
     }
 
     /**
+     * Get the file path in the src directory.
+     */
+    private function srcDir(string $path): string
+    {
+        return __DIR__."/{$path}";
+    }
+
+    /**
      * Register the package translations.
      */
     private function registerTranslations(): void
     {
-        $this->loadTranslationsFrom(__DIR__.'/lang', 'validator-docs');
+        $this->loadTranslationsFrom($this->srcDir('lang'), 'docs');
 
-        $this->publishes([__DIR__.'/lang' => $this->app->langPath('vendor/validator-docs')], 'validator-docs.lang');
+        $this->publishes([$this->srcDir('lang') => $this->app->langPath()], 'docs');
     }
 
     /**

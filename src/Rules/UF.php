@@ -1,8 +1,9 @@
 <?php
 
-namespace ValidatorDocs\Rules;
+namespace PtBrValidator\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
+use PtBrValidator\Support\Helpers;
 
 class UF implements Rule
 {
@@ -37,13 +38,9 @@ class UF implements Rule
     ];
 
     /**
-     * Valida se o UF é válido
-     *
-     * @param  string  $attribute
-     * @param  string  $value
-     * @return bool
+     * Determine if the validation rule passes.
      */
-    public function passes($attribute, $value)
+    public function passes($attribute, $value): bool
     {
         return isset(static::ESTADOS[$value]);
     }
@@ -53,6 +50,6 @@ class UF implements Rule
      */
     public function message(): string
     {
-        return 'O campo :attribute não é um UF válido.';
+        return Helpers::getMessage('uf');
     }
 }

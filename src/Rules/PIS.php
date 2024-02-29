@@ -1,8 +1,10 @@
 <?php
 
-namespace ValidatorDocs\Rules;
+namespace PtBrValidator\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
+use Illuminate\Support\Str;
+use PtBrValidator\Support\Helpers;
 
 class PIS implements Rule
 {
@@ -11,7 +13,7 @@ class PIS implements Rule
      */
     public function passes($attribute, $value): bool
     {
-        $digits = (string) preg_replace('/\D/', '', (string) $value);
+        $digits = Str::onlyNumbers($value);
 
         if (mb_strlen($digits) != 11 || preg_match('/^'.$digits[0].'{11}$/', $digits)) {
             return false;
@@ -35,6 +37,6 @@ class PIS implements Rule
      */
     public function message(): string
     {
-        return 'O campo :attribute não é um PIS válido.';
+        return Helpers::getMessage('pis');
     }
 }

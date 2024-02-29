@@ -1,8 +1,9 @@
 <?php
 
-namespace ValidatorDocs\Rules;
+namespace PtBrValidator\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
+use PtBrValidator\Support\Helpers;
 
 class CellPhoneWithCodeNoMask implements Rule
 {
@@ -19,6 +20,6 @@ class CellPhoneWithCodeNoMask implements Rule
      */
     public function message(): string
     {
-        return 'O campo :attribute não é um celular válido. Exemplo de celular válido +5514999999999';
+        return Helpers::getMessage('cellphone_with_code_no_mask');
     }
 }

@@ -21,7 +21,7 @@
     },
     "autoload": {
         "psr-4": {
-            "ValidatorDocs\\": "src/"
+            "PtBrValidator\\": "src/"
         }
     },
     "autoload-dev": {
@@ -35,7 +35,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "ValidatorDocs\\ServiceProvider"
+                "PtBrValidator\\ServiceProvider"
             ]
         }
     },

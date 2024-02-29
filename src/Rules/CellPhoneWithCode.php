@@ -1,8 +1,9 @@
 <?php
 
-namespace ValidatorDocs\Rules;
+namespace PtBrValidator\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
+use PtBrValidator\Support\Helpers;
 
 class CellPhoneWithCode implements Rule
 {
@@ -19,6 +20,6 @@ class CellPhoneWithCode implements Rule
      */
     public function message(): string
     {
-        return 'O campo :attribute não é um celular com DDD válido.';
+        return Helpers::getMessage('cellphone_with_code');
     }
 }
