@@ -1,13 +1,10 @@
 <?php
 
-namespace LaravelLegends\PtBrValidator\Rules;
+namespace ValidatorDocs\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 
-/**
- * @author Wallace Maxters <wallacemaxters@gmail.com>
- */
-class Uf implements Rule
+class UF implements Rule
 {
     const ESTADOS = [
         'AC' => 'Acre',
@@ -42,20 +39,19 @@ class Uf implements Rule
     /**
      * Valida se o UF é válido
      *
-     * @param string $attribute
-     * @param string $value
-    * @return boolean
-    */
+     * @param  string  $attribute
+     * @param  string  $value
+     * @return bool
+     */
     public function passes($attribute, $value)
     {
         return isset(static::ESTADOS[$value]);
     }
 
     /**
-     *
-     * @return string
+     * Get the validation error message.
      */
-    public function message()
+    public function message(): string
     {
         return 'O campo :attribute não é um UF válido.';
     }

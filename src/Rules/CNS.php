@@ -1,21 +1,16 @@
 <?php
 
-namespace LaravelLegends\PtBrValidator\Rules;
+namespace ValidatorDocs\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 
-/**
- * Classe para validar o CNS. 
- * Ideia de https://github.com/robertopc
- * 
- * @author Wallace Maxters <wallacemaxters@gmail.com>
- */
-class Cns implements Rule
+class CNS implements Rule
 {
-
     public function passes($attribute, $cns)
     {
-        if (!isset($cns[0])) return false;
+        if (! isset($cns[0])) {
+            return false;
+        }
 
         $digit = (int) $cns[0];
 
@@ -28,20 +23,22 @@ class Cns implements Rule
         return $digit >= 7 ? $this->cnsProv($cns) : $this->cns($cns);
     }
 
-    public function message()
+    /**
+     * Get the validation error message.
+     */
+    public function message(): string
     {
-    	return 'O campo :attribute não é um CNS válido.';
+        return 'O campo :attribute não é um CNS válido.';
     }
 
     /**
      * Valida o CNS menor que 7 no primeiro dígito
-     * @param string $cns
-     * @return bool 
+     *
+     * @return bool
      */
-
     protected function cns(string $cns)
     {
-      
+
         $pis = substr($cns, 0, 11);
 
         for ($soma = 0, $i = 0, $j = 15; $i <= 10; $i++, $j--) {
@@ -62,10 +59,10 @@ class Cns implements Rule
 
             $dv != 11 ?: $dv = 0;
 
-            $resultado = $pis . "001" . (string) $dv;
+            $resultado = $pis.'001'.(string) $dv;
 
         } else {
-            $resultado = $pis . "000" . (string) $dv;
+            $resultado = $pis.'000'.(string) $dv;
         }
 
         return $cns === $resultado;
@@ -73,11 +70,12 @@ class Cns implements Rule
 
     /**
      * Valida o CNS que inicia por 7, 8 ou 9
-     * @param string $cns
      */
     protected function cnsProv(string $cns)
     {
-        if (strlen($cns) != 15) return false;
+        if (strlen($cns) != 15) {
+            return false;
+        }
 
         for ($s = 0, $i = 0, $j = 15; $i < 15; $i++, $j--) {
             $s += intval($cns[$i]) * $j;
@@ -86,4 +84,3 @@ class Cns implements Rule
         return $s % 11 === 0;
     }
 }
-

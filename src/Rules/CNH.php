@@ -1,25 +1,15 @@
 <?php
 
-namespace LaravelLegends\PtBrValidator\Rules;
+namespace ValidatorDocs\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 
-/**
- * @author Wallace Maxters <wallacemaxters@gmail.com>
- */
-class Cnh implements Rule
+class CNH implements Rule
 {
-
-
     /**
-     * Valida se o CNH é válido
-     * 
-     * @param string $attribute
-     * @param string $value
-     * @return boolean
-    */
-
-    public function passes($attribute, $value)
+     * Determine if the validation rule passes.
+     */
+    public function passes($attribute, $value): bool
     {
         $ret = false;
 
@@ -54,8 +44,11 @@ class Cnh implements Rule
         return $ret;
     }
 
-    public function message()
+    /**
+     * Get the validation error message.
+     */
+    public function message(): string
     {
-    	return 'O campo :attribute não é uma carteira nacional de habilitação válida.';
+        return 'O campo :attribute não é uma carteira nacional de habilitação válida.';
     }
 }

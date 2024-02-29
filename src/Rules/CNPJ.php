@@ -1,25 +1,15 @@
 <?php
 
-namespace LaravelLegends\PtBrValidator\Rules;
+namespace ValidatorDocs\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 
-/**
- * @author Wallace Maxters <wallacemaxters@gmail.com>
- */
-class Cnpj implements Rule
+class CNPJ implements Rule
 {
-
-
-
     /**
-     * Valida se o CNPJ é válido
-     * 
-     * @param string $attribute
-     * @param string $value
-     * @return boolean
-    */
-    public function passes($attribute, $value)
+     * Determine if the validation rule passes.
+     */
+    public function passes($attribute, $value): bool
     {
         $c = preg_replace('/\D/', '', $value);
 
@@ -54,9 +44,11 @@ class Cnpj implements Rule
 
     }
 
-
-    public function message()
+    /**
+     * Get the validation error message.
+     */
+    public function message(): string
     {
-    	return 'O campo :attribute não é um CNPJ válido.';
+        return 'O campo :attribute não é um CNPJ válido.';
     }
 }
