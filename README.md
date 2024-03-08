@@ -60,9 +60,12 @@ A diferença é que será possível usar os seguintes métodos de validação:
 
 |           REGRA          |                                                                       Descrição                                                                       |
 |:-------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------:|
-| Celular                  | Valida se o campo está no formato (**`99999-9999`** ou **`9999-9999`**)                                                                               |
+| celular                  | Valida se o campo está no formato (**`99999-9999`** ou **`9999-9999`**)                                                                               |
+| celular_sem_mascara                  | Valida se o campo está no formato (**`999999999`** ou **`99999999`**)                                                                               |
 | celular_com_ddd          | Valida se o campo está no formato (**`(99)99999-9999`** ou **`(99)9999-9999`** ou **`(99) 99999-9999`** ou **`(99) 9999-9999`**)                      |
+| celular_com_ddd_sem_mascara          | Valida se o campo está no formato (**`99999999999`** ou **`9999999999`**)                      |
 | celular_com_codigo       | Valida se o campo está no formato `+99(99)99999-9999` ou +99(99)9999-9999.                                                                            |
+| celular_com_codigo_sem_mascara       | Valida se o campo está no formato `+9999999999999` ou +999999999999.                                                                            |
 | cnpj                     | Valida se o campo é um CNPJ válido. É possível gerar um CNPJ válido para seus testes utilizando o site [geradorcnpj.com](http://www.geradorcnpj.com/) |
 | cpf                      | Valida se o campo é um CPF válido. É possível gerar um CPF válido para seus testes utilizando o site [geradordecpf.org](http://geradordecpf.org)      |
 | cns                      | Valida se o campo é um CNS válido. Use o site [geradornv.com.br](https://geradornv.com.br/gerador-cns/) para testar                                   |
@@ -70,8 +73,11 @@ A diferença é que será possível usar os seguintes métodos de validação:
 | formato_cpf              | Valida se o campo tem uma máscara de CPF correta (**`999.999.999-99`**).                                                                              |
 | formato_cep              | Valida se o campo tem uma máscara de correta (**`99999-999`** ou **`99.999-999`**).                                                                   |
 | telefone                 | Valida se o campo tem umas máscara de telefone (**`9999-9999`**).                                                                                     |
+| telefone_sem_mascara                 | Valida se o campo é um telefone sem máscara (**`99999999`**).                                                                                     |
 | telefone_com_ddd         | Valida se o campo tem umas máscara de telefone com DDD (**`(99)9999-9999`**).                                                                         |
+| telefone_com_ddd_sem_mascara         | Valida se o campo é um telefone com DDD sem máscara (**`9999999999`**).                                                                         |
 | telefone_com_codigo      | Valida se o campo tem umas máscara de telefone com DDD (**`+55(99)9999-9999`**).                                                                      |
+| telefone_com_codigo_sem_mascara      | Valida se o campo é um telefone com código e DDD sem máscara (**`+559999999999`**).                                                                      |
 | formato_placa_de_veiculo | Valida se o campo tem o formato válido de uma placa de veículo (incluindo o padrão MERCOSUL).                                                         |
 | formato_pis              | Valida se o campo tem o formato de PIS.                                                                                                               |
 | pis                      | Valida se o PIS é válido.                                                                                                                             |

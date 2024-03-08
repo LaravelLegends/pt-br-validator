@@ -25,7 +25,9 @@ class ValidatorProvider extends ServiceProvider
     {
         $rules = [
             'celular'                        => \LaravelLegends\PtBrValidator\Rules\Celular::class,
+            'celular_sem_mascara'            => \LaravelLegends\PtBrValidator\Rules\CelularSemMascara::class,
             'celular_com_ddd'                => \LaravelLegends\PtBrValidator\Rules\CelularComDdd::class,
+            'celular_com_ddd_sem_mascara'    => \LaravelLegends\PtBrValidator\Rules\CelularComDddSemMascara::class,
             'celular_com_codigo'             => \LaravelLegends\PtBrValidator\Rules\CelularComCodigo::class,
             'celular_com_codigo_sem_mascara' => \LaravelLegends\PtBrValidator\Rules\CelularComCodigoSemMascara::class,
             'cnh'                            => \LaravelLegends\PtBrValidator\Rules\Cnh::class,
@@ -35,8 +37,11 @@ class ValidatorProvider extends ServiceProvider
             'formato_cnpj'                   => \LaravelLegends\PtBrValidator\Rules\FormatoCnpj::class,
             'formato_cpf'                    => \LaravelLegends\PtBrValidator\Rules\FormatoCpf::class,
             'telefone'                       => \LaravelLegends\PtBrValidator\Rules\Telefone::class,
+            'telefone_sem_mascara'           => \LaravelLegends\PtBrValidator\Rules\TelefoneSemMascara::class,
             'telefone_com_ddd'               => \LaravelLegends\PtBrValidator\Rules\TelefoneComDdd::class,
+            'telefone_com_ddd_sem_mascara'   => \LaravelLegends\PtBrValidator\Rules\TelefoneComDddSemMascara::class,
             'telefone_com_codigo'            => \LaravelLegends\PtBrValidator\Rules\TelefoneComCodigo::class,
+            'telefone_com_codigo_sem_mascara'=> \LaravelLegends\PtBrValidator\Rules\TelefoneComCodigoSemMascara::class,
             'formato_cep'                    => \LaravelLegends\PtBrValidator\Rules\FormatoCep::class,
             'formato_placa_de_veiculo'       => \LaravelLegends\PtBrValidator\Rules\FormatoPlacaDeVeiculo::class,
             'formato_pis'                    => \LaravelLegends\PtBrValidator\Rules\FormatoPis::class,

@@ -27,6 +27,30 @@ class TestValidator extends Orchestra\Testbench\TestCase
         $this->assertTrue($incorrect->fails());
     }
 
+    public function testTelefoneComDddSemMascara()
+    {
+        $correct = Validator::make(
+            ['certo' => '9935004444'],
+            ['certo' => 'telefone-com-ddd-sem-mascara']
+        );
+
+        $incorrect = Validator::make(
+            ['errado' => '(99)9-1926'],
+            ['errado' => 'telefone-com-ddd-sem-mascara']
+        );
+
+        $incorrect2 = Validator::make(
+            ['errado' => '99350044422'],
+            ['errado' => 'telefone-com-ddd-sem-mascara']
+        );
+
+        $this->assertTrue($correct->passes());
+
+        $this->assertTrue($incorrect->fails());
+
+        $this->assertTrue($incorrect2->fails());
+    }
+
     public function testTelefoneComCodigo()
     {
         $correct = Validator::make(
@@ -44,6 +68,30 @@ class TestValidator extends Orchestra\Testbench\TestCase
         $this->assertTrue($incorrect->fails());
     }
 
+    public function testTelefoneComCodigoSemMascara()
+    {
+        $correct = Validator::make(
+            ['certo' => '+559935004444'],
+            ['certo' => 'telefone-com-codigo-sem-mascara']
+        );
+
+        $incorrect = Validator::make(
+            ['errado' => '+5(99)9-1926'],
+            ['errado' => 'telefone-com-codigo-sem-mascara']
+        );
+
+        $incorrect2 = Validator::make(
+            ['errado' => '+55993500444422'],
+            ['errado' => 'telefone-com-codigo-sem-mascara']
+        );
+
+        $this->assertTrue($correct->passes());
+
+        $this->assertTrue($incorrect->fails());
+
+        $this->assertTrue($incorrect2->fails());
+    }
+
     public function testCelularComDdd()
     {
         $correct = Validator::make(
@@ -54,6 +102,23 @@ class TestValidator extends Orchestra\Testbench\TestCase
         $incorrect = Validator::make(
             ['errado' => '(99)800-1926'],
             ['errado' => 'celular-com-ddd']
+        );
+
+        $this->assertTrue($correct->passes());
+
+        $this->assertTrue($incorrect->fails());
+    }
+
+    public function testCelularComDddSemMascara()
+    {
+        $correct = Validator::make(
+            ['certo' => '99988994444'],
+            ['certo' => 'celular-com-ddd-sem-mascara']
+        );
+
+        $incorrect = Validator::make(
+            ['errado' => '(99) 98899-4444'],
+            ['errado' => 'celular-com-ddd-sem-mascara']
         );
 
         $this->assertTrue($correct->passes());
@@ -96,6 +161,24 @@ class TestValidator extends Orchestra\Testbench\TestCase
         $this->assertTrue($incorrect->fails());
     }
 
+
+    public function testCelularSemMascara()
+    {
+        $correct = Validator::make(
+            ['certo' => '988994444', 'outro_certo' => '98001936'],
+            ['certo' => 'celular-sem-mascara', 'outro_certo' => 'celular-sem-mascara']
+        );
+
+        $incorrect = Validator::make(
+            ['errado' => '98899-4444'],
+            ['errado' => 'celular-sem-mascara']
+        );
+
+        $this->assertTrue($correct->passes());
+
+        $this->assertTrue($incorrect->fails());
+    }
+
     public function testTelefone()
     {
         $correct = Validator::make(
@@ -106,6 +189,23 @@ class TestValidator extends Orchestra\Testbench\TestCase
         $incorrect = Validator::make(
             ['errado' => '99800-1926'],
             ['errado' => 'telefone']
+        );
+
+        $this->assertTrue($correct->passes());
+
+        $this->assertTrue($incorrect->fails());
+    }
+
+    public function testTelefoneSemMascara()
+    {
+        $correct = Validator::make(
+            ['certo' => '35984550'],
+            ['certo' => 'telefone-sem-mascara']
+        );
+
+        $incorrect = Validator::make(
+            ['errado' => '99800-1926'],
+            ['errado' => 'telefone-sem-mascara']
         );
 
         $this->assertTrue($correct->passes());
@@ -304,11 +404,11 @@ class TestValidator extends Orchestra\Testbench\TestCase
 
     public function testFormatoPis()
     {
-        $validator = Validator::make(['valido' => '276.96730.83-0'], [ 'valido' => 'formato_pis' ]);
+        $validator = Validator::make(['valido' => '276.96730.83-0'], ['valido' => 'formato_pis']);
 
         $this->assertTrue($validator->passes());
 
-        $validator = Validator::make(['valido' => '276.96730.830'], [ 'valido' => 'formato_pis' ]);
+        $validator = Validator::make(['valido' => '276.96730.830'], ['valido' => 'formato_pis']);
 
         $this->assertTrue($validator->fails());
     }
@@ -317,13 +417,13 @@ class TestValidator extends Orchestra\Testbench\TestCase
     public function testPis()
     {
         foreach (['690.30244.88-6', '042.33768.05-2', '971.78508.77-5'] as $pis) {
-            $validator = Validator::make(['valido' => $pis], [ 'valido' => 'pis']);
-    
+            $validator = Validator::make(['valido' => $pis], ['valido' => 'pis']);
+
             $this->assertTrue($validator->passes());
         }
 
 
-        $validator = Validator::make(['valido' => '290.30244.88-5'], [ 'valido' => 'pis' ]);
+        $validator = Validator::make(['valido' => '290.30244.88-5'], ['valido' => 'pis']);
 
         $this->assertTrue($validator->fails());
     }
@@ -422,36 +522,20 @@ class TestValidator extends Orchestra\Testbench\TestCase
 
     public function testCns()
     {
-        foreach ([
-            '272004493990007', 
-            '140776230420006',
-            '254446765170004',
-            '912176122180009',
-            '174295560290007',
-            '103409299850000',
-            '773398431180002',
-        ] as $valor) {
+        foreach (['272004493990007', '140776230420006', '254446765170004', '912176122180009', '174295560290007', '103409299850000', '773398431180002',] as $valor) {
 
             $validator = Validator::make(
-                ['valido' => $valor], 
+                ['valido' => $valor],
                 ['valido' => ['required', 'cns']]
             );
 
             $this->assertTrue($validator->passes(), "O número $valor é inválido");
         }
 
-        foreach ([
-            '072004493990007', 
-            '000000000000000',
-            '111111111111111',
-            '222222222222222',
-            '999999999999999',
-            '123456789123456'
-
-        ] as $valor) {
+        foreach (['072004493990007', '000000000000000', '111111111111111', '222222222222222', '999999999999999', '123456789123456'] as $valor) {
 
             $validator = Validator::make(
-                ['valido' => $valor], 
+                ['valido' => $valor],
                 ['valido' => ['required', 'cns']]
             );
 
