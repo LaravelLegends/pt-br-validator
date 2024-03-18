@@ -31,6 +31,10 @@ Esta biblioteca adiciona validações brasileira ao Laravel, como CPF, CNPJ, Pla
         <td>^10.0</td>
         <td>^10.0</td>
     </tr>
+     <tr>
+        <td>^11.0</td>
+        <td>^11.0</td>
+    </tr>
 </table>
 
 ## Instalação
