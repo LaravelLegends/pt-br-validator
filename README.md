@@ -4,8 +4,6 @@ Esta biblioteca adiciona validações brasileira ao Laravel, como CPF, CNPJ, Pla
 
 :brazil::brazil::brazil:
 
-[![Build Status](https://travis-ci.org/LaravelLegends/pt-br-validator.svg?branch=master)](https://travis-ci.org/LaravelLegends/pt-br-validator)
-
 ## Versões
 
 <table>
@@ -29,6 +27,10 @@ Esta biblioteca adiciona validações brasileira ao Laravel, como CPF, CNPJ, Pla
         <td>^9.0</td>
         <td>^9.0</td>
     </tr>
+    <tr>
+        <td>^10.0</td>
+        <td>^10.0</td>
+    </tr>
 </table>
 
 ## Instalação
@@ -45,6 +47,13 @@ E então execute:
 composer require laravellegends/pt-br-validator
 ```
 
+Caso esteja utilizando uma versão desta biblioteca anterior a `5.2`, você deve o provider em `config/app.php`
+```php
+'providers' => [
+    // ... outros pacotes
+    LaravelLegends\PtBrValidator\ValidatorProvider::class
+]
+```
 Agora, para utilizar a validação, basta fazer o procedimento padrão do `Laravel`.
 
 A diferença é que será possível usar os seguintes métodos de validação:
@@ -193,6 +202,11 @@ Route::get('testando', function (Request $request) {
 
 
 
-### Sugestões
+## Sugestões
 
 [Eloquent Filter](https://github.com/LaravelLegends/eloquent-filter): Essa biblioteca foi desenvolvida com o propósito de criar facilmente filtros de pesquisa para APIs REST. Com esta biblioteca, você vai economizar várias linhas de códigos, bem como manter um padrão global para filtros de pesquisa em sua aplicação escrita em Laravel.
+
+
+## Doações
+
+[Paypal](https://www.paypal.com/donate/?business=KCAGBVD5TJLUL&no_recurring=0&item_name=Ajude+a+sustentar+algu%C3%A9m+que+apoia+o+open-source+%3A%29&currency_code=BRL)
