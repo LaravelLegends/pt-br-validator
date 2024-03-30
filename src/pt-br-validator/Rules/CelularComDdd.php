@@ -5,7 +5,7 @@ namespace LaravelLegends\PtBrValidator\Rules;
 use Illuminate\Contracts\Validation\Rule;
 
 /**
- * @author Wallace Maxters <wallacemaxters@gmail.com>
+ * @author Samuel Lujan <samuel_lujan@hotmail.com>
 */
 class CelularComDdd implements Rule
 {    
@@ -18,7 +18,7 @@ class CelularComDdd implements Rule
     */
     public function passes($attribute, $value)
     {
-        return preg_match('/^\(\d{2}\)\s?\d{4,5}-\d{4}$/', $value) > 0;
+        return preg_match('/^\(\d{2}\)\s?\d{4,5}-?\s?\d{4}$/', $value) > 0;
     }
 
     public function message()

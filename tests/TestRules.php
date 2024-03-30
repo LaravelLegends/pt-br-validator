@@ -27,7 +27,6 @@ class TestRules extends Orchestra\Testbench\TestCase
         $this->assertTrue($validator->passes());
     }
 
-
     public function testCelularComCodigo()
     {
         $validator = \Validator::make([
@@ -65,10 +64,6 @@ class TestRules extends Orchestra\Testbench\TestCase
 
         $this->assertTrue($validator->passes());
     }
-
-
-
-
 
     public function testTelefoneComCodigo()
     {

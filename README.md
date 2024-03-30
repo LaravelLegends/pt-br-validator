@@ -62,6 +62,8 @@ Agora, para utilizar a validação, basta fazer o procedimento padrão do `Larav
 
 A diferença é que será possível usar os seguintes métodos de validação:
 
+
+
 |           REGRA          |                                                                       Descrição                                                                       |
 |:-------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------:|
 | Celular                  | Valida se o campo está no formato (**`99999-9999`** ou **`9999-9999`**)                                                                               |
