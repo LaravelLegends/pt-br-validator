@@ -127,7 +127,7 @@ class TestRules extends Orchestra\Testbench\TestCase
     public function testCnpj()
     {
         $validator = \Validator::make([
-            'valido' => '16.651.801/0001-57'
+            'valido' => '12.ABC.345/01DE-35'
         ], [
             'valido' => ['required', new \LaravelLegends\PtBrValidator\Rules\Cnpj]
         ]);
@@ -135,7 +135,7 @@ class TestRules extends Orchestra\Testbench\TestCase
         $this->assertTrue($validator->passes());
 
         $validator = \Validator::make([
-            'invalido' => '16.651.801/0001-52'
+            'invalido' => '12.ABC.345/01DE-36'
         ], [
             'invalido' => ['required', new \LaravelLegends\PtBrValidator\Rules\Cnpj]
         ]);
@@ -148,7 +148,7 @@ class TestRules extends Orchestra\Testbench\TestCase
     public function testFormatoCnpj()
     {
         $validator = \Validator::make([
-            'valido' => '16.651.801/0001-57'
+            'valido' => '12.ABC.345/01DE-35'
         ], [
             'valido' => ['required', new \LaravelLegends\PtBrValidator\Rules\FormatoCnpj]
         ]);
@@ -156,7 +156,7 @@ class TestRules extends Orchestra\Testbench\TestCase
         $this->assertTrue($validator->passes());
 
         $validator = \Validator::make([
-            'invalido' => '16.651.801/000152'
+            'invalido' => '12.ABC.345/01DE36'
         ], [
             'invalido' => ['required', new \LaravelLegends\PtBrValidator\Rules\FormatoCnpj]
         ]);
