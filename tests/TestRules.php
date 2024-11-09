@@ -156,7 +156,7 @@ class TestRules extends Orchestra\Testbench\TestCase
         $this->assertTrue($validator->passes());
 
         $validator = \Validator::make([
-            'invalido' => '12.ABC.345/01DE-36'
+            'invalido' => '12.ABC.345/01DE36'
         ], [
             'invalido' => ['required', new \LaravelLegends\PtBrValidator\Rules\FormatoCnpj]
         ]);
