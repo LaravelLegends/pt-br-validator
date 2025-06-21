@@ -1,11 +1,12 @@
 <?php
 
+use Illuminate\Support\Facades\Validator;
 
 class TestRules extends Orchestra\Testbench\TestCase
 {
     public function testCelular()
     {
-        $validator = \Validator::make([
+        $validator = Validator::make([
             'valido' => '99999-5555'
         ], [
             'valido' => ['required', new \LaravelLegends\PtBrValidator\Rules\Celular]
@@ -17,7 +18,7 @@ class TestRules extends Orchestra\Testbench\TestCase
 
     public function testCelularComDdd()
     {
-        $validator = \Validator::make([
+        $validator = Validator::make([
             'valido' => '(31)99999-5555'
         ], [
             'valido' => ['required', new \LaravelLegends\PtBrValidator\Rules\CelularComDdd]
@@ -30,7 +31,7 @@ class TestRules extends Orchestra\Testbench\TestCase
 
     public function testCelularComCodigo()
     {
-        $validator = \Validator::make([
+        $validator = Validator::make([
             'valido' => '+1(31)99999-5555'
         ], [
             'valido' => ['required', new \LaravelLegends\PtBrValidator\Rules\CelularComCodigo]
@@ -42,7 +43,7 @@ class TestRules extends Orchestra\Testbench\TestCase
 
     public function testTelefone()
     {
-        $validator = \Validator::make([
+        $validator = Validator::make([
             'valido' => '9999-5555'
         ], [
             'valido' => ['required', new \LaravelLegends\PtBrValidator\Rules\Telefone]
@@ -56,7 +57,7 @@ class TestRules extends Orchestra\Testbench\TestCase
 
     public function testTelefoneComDdd()
     {
-        $validator = \Validator::make([
+        $validator = Validator::make([
             'valido' => '(31)9999-5555'
         ], [
             'valido' => ['required', new \LaravelLegends\PtBrValidator\Rules\TelefoneComDdd]
@@ -72,7 +73,7 @@ class TestRules extends Orchestra\Testbench\TestCase
 
     public function testTelefoneComCodigo()
     {
-        $validator = \Validator::make([
+        $validator = Validator::make([
             'valido' => '+66(31)9999-5555'
         ], [
             'valido' => ['required', new \LaravelLegends\PtBrValidator\Rules\TelefoneComCodigo]
@@ -85,7 +86,7 @@ class TestRules extends Orchestra\Testbench\TestCase
 
     public function testCpf()
     {
-        $validator = \Validator::make([
+        $validator = Validator::make([
             'valido' => '98136622809'
         ], [
             'valido' => ['required', new \LaravelLegends\PtBrValidator\Rules\Cpf]
@@ -93,7 +94,7 @@ class TestRules extends Orchestra\Testbench\TestCase
 
         $this->assertTrue($validator->passes());
 
-        $validator = \Validator::make([
+        $validator = Validator::make([
             'invalido' => '08136622809'
         ], [
             'invalido' => ['required', new \LaravelLegends\PtBrValidator\Rules\Cpf]
@@ -105,7 +106,7 @@ class TestRules extends Orchestra\Testbench\TestCase
 
     public function testFormatoCpf()
     {
-        $validator = \Validator::make([
+        $validator = Validator::make([
             'valido' => '981.366.228-09'
         ], [
             'valido' => ['required', new \LaravelLegends\PtBrValidator\Rules\FormatoCpf]
@@ -113,7 +114,7 @@ class TestRules extends Orchestra\Testbench\TestCase
 
         $this->assertTrue($validator->passes());
 
-        $validator = \Validator::make([
+        $validator = Validator::make([
             'invalido' => '08136622809'
         ], [
             'invalido' => ['required', new \LaravelLegends\PtBrValidator\Rules\FormatoCpf]
@@ -124,59 +125,58 @@ class TestRules extends Orchestra\Testbench\TestCase
 
     public function testCnpj()
     {
-        $validator = \Validator::make([
-            'valido' => '12.ABC.345/01DE-35'
-        ], [
-            'valido' => ['required', new \LaravelLegends\PtBrValidator\Rules\Cnpj]
-        ]);
+        $cnpjs = ['12.ABC.345/01DE-35', '33.109.809/0001-05'];
+
+        foreach ($cnpjs as $cnpj) {
+            $validator = Validator::make([
+                'valido' => $cnpj
+            ], [
+                'valido' => ['required', new \LaravelLegends\PtBrValidator\Rules\Cnpj]
+            ]);
+        }
 
         $this->assertTrue($validator->passes());
 
-        $validator = \Validator::make([
-            'invalido' => '12.ABC.345/01DE-36'
-        ], [
-            'invalido' => ['required', new \LaravelLegends\PtBrValidator\Rules\Cnpj]
-        ]);
+        $invalidos = ['12.ABC.345/01DE-36', '33.109.809/0001-06'];
+
+        foreach ($invalidos as $cnpj) {
+
+            $validator = Validator::make([
+                'invalido' => $cnpj
+            ], [
+                'invalido' => ['required', new \LaravelLegends\PtBrValidator\Rules\Cnpj]
+            ]);
+        }
 
         $this->assertTrue($validator->fails());
     }
-
-    public function testCnpjComAlfanumerico()
-    {
-        $validator = \Validator::make([
-            'valido' => '12.ABC.345/01DE-35'
-        ], [
-            'valido' => ['required', new \LaravelLegends\PtBrValidator\Rules\Cnpj]
-        ]);
-
-        $this->assertTrue($validator->passes());
-
-        $validator = \Validator::make([
-            'invalido' => '12.ABC.345/01DE-36'
-        ], [
-            'invalido' => ['required', new \LaravelLegends\PtBrValidator\Rules\Cnpj]
-        ]);
-
-        $this->assertTrue($validator->fails());
-    }
-
 
 
     public function testFormatoCnpj()
     {
-        $validator = \Validator::make([
-            'valido' => '12.ABC.345/01DE-35'
-        ], [
-            'valido' => ['required', new \LaravelLegends\PtBrValidator\Rules\FormatoCnpj]
-        ]);
+        $cnpjs = ['12.ABC.345/01DE-35', '33.109.809/0001-05'];
+
+        foreach ($cnpjs as $cnpj) {
+            $validator = Validator::make([
+                'valido' => $cnpj
+            ], [
+                'valido' => ['required', new \LaravelLegends\PtBrValidator\Rules\FormatoCnpj]
+            ]);
+        }
 
         $this->assertTrue($validator->passes());
 
-        $validator = \Validator::make([
-            'invalido' => '12.ABC.345/01DE36'
-        ], [
-            'invalido' => ['required', new \LaravelLegends\PtBrValidator\Rules\FormatoCnpj]
-        ]);
+
+        $invalidos = ['12.ABC.345/01DE35', '33.109.809/000105'];
+
+        foreach ($invalidos as $cnpj) {
+            $validator = Validator::make([
+                'invalido' => $cnpj
+            ], [
+                'invalido' => ['required', new \LaravelLegends\PtBrValidator\Rules\FormatoCnpj]
+            ]);
+        }
+
 
         $this->assertTrue($validator->fails());
     }
@@ -184,7 +184,7 @@ class TestRules extends Orchestra\Testbench\TestCase
 
     public function testFormatoPlacaDeVeiculo()
     {
-        $validator = \Validator::make([
+        $validator = Validator::make([
             'valido' => 'BEE4R22'
         ], [
             'valido' => ['required', new \LaravelLegends\PtBrValidator\Rules\FormatoPlacaDeVeiculo]
@@ -192,7 +192,7 @@ class TestRules extends Orchestra\Testbench\TestCase
 
         $this->assertTrue($validator->passes());
 
-        $validator = \Validator::make([
+        $validator = Validator::make([
             'invalido' => 'XXXBEE4R22'
         ], [
             'invalido' => ['required', new \LaravelLegends\PtBrValidator\Rules\FormatoPlacaDeVeiculo]
@@ -205,7 +205,7 @@ class TestRules extends Orchestra\Testbench\TestCase
 
     public function testCnh()
     {
-        $validator = \Validator::make([
+        $validator = Validator::make([
             'valido' => '96784547943'
         ], [
             'valido' => ['required', new \LaravelLegends\PtBrValidator\Rules\Cnh]
@@ -213,7 +213,7 @@ class TestRules extends Orchestra\Testbench\TestCase
 
         $this->assertTrue($validator->passes());
 
-        $validator = \Validator::make([
+        $validator = Validator::make([
             'invalido' => '96784547999'
         ], [
             'invalido' => ['required', new \LaravelLegends\PtBrValidator\Rules\Cnh]
@@ -224,11 +224,11 @@ class TestRules extends Orchestra\Testbench\TestCase
 
     public function testFormatoPis()
     {
-        $validator = \Validator::make(['valido' => '276.96730.83-0'], ['valido' => ['required', new \LaravelLegends\PtBrValidator\Rules\FormatoPis]]);
+        $validator = Validator::make(['valido' => '276.96730.83-0'], ['valido' => ['required', new \LaravelLegends\PtBrValidator\Rules\FormatoPis]]);
 
         $this->assertTrue($validator->passes());
 
-        $validator = \Validator::make(['valido' => '276.96730.830'], ['valido' => ['required', new \LaravelLegends\PtBrValidator\Rules\FormatoPis]]);
+        $validator = Validator::make(['valido' => '276.96730.830'], ['valido' => ['required', new \LaravelLegends\PtBrValidator\Rules\FormatoPis]]);
 
         $this->assertTrue($validator->fails());
     }
@@ -239,13 +239,13 @@ class TestRules extends Orchestra\Testbench\TestCase
 
         foreach (['690.30244.88-6', '042.33768.05-2', '971.78508.77-5'] as $pis) {
 
-            $validator = \Validator::make(['valido' => $pis], ['valido' => ['required', new \LaravelLegends\PtBrValidator\Rules\Pis]]);
+            $validator = Validator::make(['valido' => $pis], ['valido' => ['required', new \LaravelLegends\PtBrValidator\Rules\Pis]]);
 
             $this->assertTrue($validator->passes());
         }
 
 
-        $validator = \Validator::make(['valido' => '290.30244.88-5'], ['valido' => ['required', new \LaravelLegends\PtBrValidator\Rules\Pis]]);
+        $validator = Validator::make(['valido' => '290.30244.88-5'], ['valido' => ['required', new \LaravelLegends\PtBrValidator\Rules\Pis]]);
 
         $this->assertTrue($validator->fails());
     }
@@ -257,7 +257,7 @@ class TestRules extends Orchestra\Testbench\TestCase
 
         foreach (['981.366.228-09', '56.611.605/0001-73', '49851807000127'] as $valor) {
 
-            $validator = \Validator::make(
+            $validator = Validator::make(
                 ['valido' => $valor],
                 ['valido' => ['required', new \LaravelLegends\PtBrValidator\Rules\CpfOuCnpj]]
             );
@@ -267,7 +267,7 @@ class TestRules extends Orchestra\Testbench\TestCase
 
         foreach (['000.366.228-09', '11.611.605/0001-73', '22851807000127'] as $valor) {
 
-            $validator = \Validator::make(
+            $validator = Validator::make(
                 ['invalido' => $valor],
                 ['invalido' => ['required', new \LaravelLegends\PtBrValidator\Rules\CpfOuCnpj]]
             );
@@ -283,7 +283,7 @@ class TestRules extends Orchestra\Testbench\TestCase
 
         foreach (['981.366.228-09', '000.000.000-00', '56.611.605/0001-73'] as $valor) {
 
-            $validator = \Validator::make(
+            $validator = Validator::make(
                 ['valido' => $valor],
                 ['valido' => ['required', new \LaravelLegends\PtBrValidator\Rules\FormatoCpfOuCnpj]]
             );
@@ -293,7 +293,7 @@ class TestRules extends Orchestra\Testbench\TestCase
 
         foreach (['0000.366.228-09', '11.6211.605/0001-73', '22851807000127'] as $valor) {
 
-            $validator = \Validator::make(
+            $validator = Validator::make(
                 ['invalido' => $valor],
                 ['invalido' => ['required', new \LaravelLegends\PtBrValidator\Rules\FormatoCpfOuCnpj]]
             );
@@ -317,7 +317,7 @@ class TestRules extends Orchestra\Testbench\TestCase
             ] as $valor
         ) {
 
-            $validator = \Validator::make(
+            $validator = Validator::make(
                 ['valido' => $valor],
                 ['valido' => ['required', new \LaravelLegends\PtBrValidator\Rules\Cns]]
             );
@@ -337,7 +337,7 @@ class TestRules extends Orchestra\Testbench\TestCase
             ] as $valor
         ) {
 
-            $validator = \Validator::make(
+            $validator = Validator::make(
                 ['valido' => $valor],
                 ['valido' => [new \LaravelLegends\PtBrValidator\Rules\Cns]]
             );
