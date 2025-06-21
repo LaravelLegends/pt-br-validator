@@ -21,7 +21,7 @@ class Cnpj implements ValidationRule
     */
     public function passes($attribute, $value)
     {
-        $c = preg_replace('/\D/', '', $value);
+        $c = preg_replace('/((?![0-9A-Z]).)/', '', strtoupper($value));
 
         $b = [6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
 
@@ -38,13 +38,13 @@ class Cnpj implements ValidationRule
             return false;
         }
 
-        for ($i = 0, $n = 0; $i < 12; $n += $c[$i] * $b[++$i]);
+        for ($i = 0, $n = 0; $i < 12; $n += (ord($c[$i]) - 48) * $b[++$i]);
 
         if ($c[12] != ((($n %= 11) < 2) ? 0 : 11 - $n)) {
             return false;
         }
 
-        for ($i = 0, $n = 0; $i <= 12; $n += $c[$i] * $b[$i++]);
+        for ($i = 0, $n = 0; $i <= 12; $n += (ord($c[$i]) - 48) * $b[$i++]);
 
         if ($c[13] != ((($n %= 11) < 2) ? 0 : 11 - $n)) {
             return false;
