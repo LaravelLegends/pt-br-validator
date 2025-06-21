@@ -3,12 +3,16 @@
 namespace LaravelLegends\PtBrValidator\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
+use Illuminate\Contracts\Validation\ValidationRule;
+use LaravelLegends\PtBrValidator\Rules\Concerns\HasValidationRule;
 
 /**
  * @author Wallace Maxters <wallacemaxters@gmail.com>
  */
-class CpfOuCnpj implements Rule
+class CpfOuCnpj implements ValidationRule
 {
+
+	use HasValidationRule;
 	/**
 	 * Valida se o campo é um CPF ou um CNPJ válido
 	 *

@@ -3,12 +3,15 @@
 namespace LaravelLegends\PtBrValidator\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
+use Illuminate\Contracts\Validation\ValidationRule;
+use LaravelLegends\PtBrValidator\Rules\Concerns\HasValidationRule;
 
 /**
  * @author Wallace Maxters <wallacemaxters@gmail.com>
  */
-class Cpf implements Rule
+class Cpf implements ValidationRule
 {
+    use HasValidationRule;
 
 
     /**

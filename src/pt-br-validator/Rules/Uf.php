@@ -2,13 +2,16 @@
 
 namespace LaravelLegends\PtBrValidator\Rules;
 
-use Illuminate\Contracts\Validation\Rule;
+use Illuminate\Contracts\Validation\ValidationRule;
+use LaravelLegends\PtBrValidator\Rules\Concerns\HasValidationRule;
 
 /**
  * @author Wallace Maxters <wallacemaxters@gmail.com>
  */
-class Uf implements Rule
+class Uf implements ValidationRule
 {
+    use HasValidationRule;
+
     const ESTADOS = [
         'AC' => 'Acre',
         'AL' => 'Alagoas',

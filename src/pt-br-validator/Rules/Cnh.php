@@ -3,13 +3,16 @@
 namespace LaravelLegends\PtBrValidator\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
+use Illuminate\Contracts\Validation\ValidationRule;
+use LaravelLegends\PtBrValidator\Rules\Concerns\HasValidationRule;
 
 /**
  * @author Wallace Maxters <wallacemaxters@gmail.com>
  */
-class Cnh implements Rule
+class Cnh implements ValidationRule
 {
 
+    use HasValidationRule;
 
     /**
      * Valida se o CNH é válido

@@ -2,7 +2,8 @@
 
 namespace LaravelLegends\PtBrValidator\Rules;
 
-use Illuminate\Contracts\Validation\Rule;
+use Illuminate\Contracts\Validation\ValidationRule;
+use LaravelLegends\PtBrValidator\Rules\Concerns\HasValidationRule;
 
 /**
  * Classe para validar o CNS. 
@@ -10,8 +11,9 @@ use Illuminate\Contracts\Validation\Rule;
  * 
  * @author Wallace Maxters <wallacemaxters@gmail.com>
  */
-class Cns implements Rule
+class Cns implements ValidationRule
 {
+    use HasValidationRule;
 
     public function passes($attribute, $cns)
     {
