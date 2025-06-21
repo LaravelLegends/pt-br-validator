@@ -23,7 +23,7 @@ class FormatoCnpj implements ValidationRule
     */
     public function passes($attribute, $value)
     {
-        return preg_match('/^\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2}$/', $value) > 0;
+        return preg_match('/^[0-9A-Z]{2}\.[0-9A-Z]{3}\.[0-9A-Z]{3}\/[0-9A-Z]{4}-\d{2}$/', $value) > 0;
     }
 
     public function message()
