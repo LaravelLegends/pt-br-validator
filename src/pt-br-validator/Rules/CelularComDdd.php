@@ -21,7 +21,7 @@ class CelularComDdd implements ValidationRule
     */
     public function passes($attribute, $value)
     {
-        return preg_match('/^\(\d{2}\)\s?\d{4,5}-\d{4}$/', $value) > 0;
+        return preg_match('/^\([1-9][1-9]\)\s?\d{4,5}-\d{4}$/', $value) > 0;
     }
 
     public function message()
